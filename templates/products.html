@@ -6,22 +6,20 @@
 <div class="container">
     <div class="page-header">
         <h1 id="products-title">Our Products</h1>
-        
+
         <!-- Filters -->
         <div class="filters" id="product-filters">
-            <input type="text" id="search-input" class="form-control" 
-                   placeholder="Search products..." autocomplete="off">
-            
+            <input type="text" id="search-input" class="form-control" placeholder="Search products..."
+                autocomplete="off">
+
             <select id="category-filter" class="form-control">
                 <option value="">All Categories</option>
             </select>
-            
-            <input type="number" id="min-price" class="form-control" 
-                   placeholder="Min Price" min="0" step="0.01">
-            
-            <input type="number" id="max-price" class="form-control" 
-                   placeholder="Max Price" min="0" step="0.01">
-            
+
+            <input type="number" id="min-price" class="form-control" placeholder="Min Price" min="0" step="0.01">
+
+            <input type="number" id="max-price" class="form-control" placeholder="Max Price" min="0" step="0.01">
+
             <button type="button" id="btn-apply-filters" class="btn btn-primary">Apply Filters</button>
             <button type="button" id="btn-clear-filters" class="btn btn-outline">Clear</button>
         </div>
@@ -40,13 +38,27 @@
     let currentPage = 1;
     const perPage = 12;
 
-    document.addEventListener('DOMContentLoaded', function() {
+    const localImagePaths = [
+        '/static/img/cam.png',
+        '/static/img/i3ti.png',
+        '/static/img/keyboard.png',
+        '/static/img/laptop.png',
+        '/static/img/mointor.png',
+        '/static/img/mouse.png',
+        '/static/img/other.png',
+        '/static/img/placeholder.svg',
+        '/static/img/speaker.png',
+        '/static/img/usbhub.png'
+    ];
+    let imageIndex = 0; // To cycle through images
+
+    document.addEventListener('DOMContentLoaded', function () {
         console.log('DOM loaded, initializing products page...');
-        
+
         // Parse URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const categoryParam = urlParams.get('category');
-        
+
         loadCategories().then(() => {
             // Set category filter if provided in URL
             if (categoryParam) {
@@ -57,7 +69,7 @@
             }
             loadProducts();
         });
-        
+
         // Filter event listeners
         const applyBtn = document.getElementById('btn-apply-filters');
         const clearBtn = document.getElementById('btn-clear-filters');
@@ -65,7 +77,7 @@
         const categoryFilter = document.getElementById('category-filter');
         const minPrice = document.getElementById('min-price');
         const maxPrice = document.getElementById('max-price');
-        
+
         console.log('Filter elements found:', {
             applyBtn: !!applyBtn,
             clearBtn: !!clearBtn,
@@ -74,23 +86,23 @@
             minPrice: !!minPrice,
             maxPrice: !!maxPrice
         });
-        
+
         if (applyBtn) applyBtn.addEventListener('click', applyFilters);
         if (clearBtn) clearBtn.addEventListener('click', clearFilters);
-        
+
         // Real-time filtering
         if (searchInput) searchInput.addEventListener('input', debounce(applyFilters, 500));
         if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
         if (minPrice) minPrice.addEventListener('input', debounce(applyFilters, 500));
         if (maxPrice) maxPrice.addEventListener('input', debounce(applyFilters, 500));
-        
+
         // Enter key for search
         if (searchInput) {
-            searchInput.addEventListener('keyup', function(e) {
+            searchInput.addEventListener('keyup', function (e) {
                 if (e.key === 'Enter') applyFilters();
             });
         }
-        
+
         console.log('Event listeners attached successfully');
     });
 
@@ -111,7 +123,7 @@
         try {
             const response = await fetch('/api/categories');
             const result = await response.json();
-            
+
             if (result.success) {
                 const select = document.getElementById('category-filter');
                 result.data.forEach(cat => {
@@ -134,25 +146,25 @@
         const category = document.getElementById('category-filter').value;
         const minPrice = document.getElementById('min-price').value;
         const maxPrice = document.getElementById('max-price').value;
-        
+
         // Show loading state
         const grid = document.getElementById('products-grid');
         grid.innerHTML = '<div class="loading">Loading products...</div>';
-        
+
         let url = `/api/products?page=${currentPage}&per_page=${perPage}`;
         if (search) url += `&search=${encodeURIComponent(search)}`;
         if (category) url += `&category=${encodeURIComponent(category)}`;
         if (minPrice) url += `&min_price=${minPrice}`;
         if (maxPrice) url += `&max_price=${maxPrice}`;
-        
+
         console.log('Loading products from:', url); // Debug log
-        
+
         try {
             const response = await fetch(url);
             const result = await response.json();
-            
+
             console.log('API Response:', result); // Debug log
-            
+
             if (result.success) {
                 displayProducts(result.data);
                 displayPagination(result.pagination);
@@ -167,16 +179,19 @@
 
     function displayProducts(products) {
         const grid = document.getElementById('products-grid');
-        
+
         if (products.length === 0) {
             grid.innerHTML = '<p class="no-results" id="no-products">No products found.</p>';
             return;
         }
-        
-        grid.innerHTML = products.map(product => `
+
+        grid.innerHTML = products.map(product => {
+            const currentImagePath = localImagePaths[imageIndex % localImagePaths.length];
+            imageIndex++; // Move to the next image for the next product
+            return `
             <div class="product-card" id="product-${product.id}">
                 <div class="product-image">
-                    <img src="${product.image_url || '/static/img/placeholder.png'}" 
+                    <img src="${currentImagePath}" 
                          alt="${product.name}" id="product-img-${product.id}">
                 </div>
                 <div class="product-info">
@@ -196,21 +211,21 @@
                     </div>
                 </div>
             </div>
-        `).join('');
-        
+        `}).join('');
+
         // Load likes after products are displayed
         setTimeout(loadAllProductLikes, 100);
     }
-    
+
     // Load likes for all products
     async function loadAllProductLikes() {
         const likeButtons = document.querySelectorAll('[id^="btn-like-"]');
         const likeCounts = document.querySelectorAll('[id^="like-count-"]');
-        
+
         // Check localStorage first for faster loading
         const likedProducts = JSON.parse(localStorage.getItem('liked_products') || '[]');
         console.log('Liked products in localStorage:', likedProducts);
-        
+
         // Load likes count for each product
         for (const likeCount of likeCounts) {
             const productId = likeCount.id.replace('like-count-', '');
@@ -224,7 +239,7 @@
                 console.error('Error loading likes for product', productId, error);
             }
         }
-        
+
         // Check localStorage for liked products first
         for (const likeButton of likeButtons) {
             const productId = likeButton.id.replace('btn-like-', '');
@@ -233,18 +248,18 @@
                 updateLikeButton(productId, true);
             }
         }
-        
+
         // Check if current user has liked each product on server
         const token = localStorage.getItem('token');
         if (token) {
             for (const likeButton of likeButtons) {
                 const productId = likeButton.id.replace('btn-like-', '');
-                
+
                 // Skip if already marked as liked
                 if (likedProducts.includes(parseInt(productId))) {
                     continue;
                 }
-                
+
                 try {
                     const response = await fetch(`/api/products/${productId}/likes/check`, {
                         headers: {
@@ -271,7 +286,7 @@
     function displayPagination(pagination) {
         const container = document.getElementById('pagination');
         let html = '';
-        
+
         if (pagination.pages > 1) {
             for (let i = 1; i <= pagination.pages; i++) {
                 html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" 
@@ -279,7 +294,7 @@
                                 onclick="changePage(${i})">${i}</button>`;
             }
         }
-        
+
         container.innerHTML = html;
     }
 
@@ -291,17 +306,17 @@
 
     function applyFilters() {
         console.log('Applying filters...'); // Debug log
-        
+
         // Add visual feedback
         const applyBtn = document.getElementById('btn-apply-filters');
         if (applyBtn) {
             applyBtn.textContent = 'Filtering...';
             applyBtn.disabled = true;
         }
-        
+
         currentPage = 1;
         loadProducts();
-        
+
         // Reset button after a short delay
         setTimeout(() => {
             if (applyBtn) {
@@ -322,13 +337,13 @@
 
     async function addToCart(productId) {
         const token = localStorage.getItem('token');
-        
+
         if (!token) {
             showAlert('Please login to add items to cart', 'error');
             setTimeout(() => window.location.href = '/web/login', 1500);
             return;
         }
-        
+
         try {
             const response = await fetch('/api/cart/items', {
                 method: 'POST',
@@ -338,9 +353,9 @@
                 },
                 body: JSON.stringify({ product_id: productId, quantity: 1 })
             });
-            
+
             const result = await response.json();
-            
+
             if (result.success) {
                 showAlert('Added to cart!', 'success');
                 updateCartCount();
