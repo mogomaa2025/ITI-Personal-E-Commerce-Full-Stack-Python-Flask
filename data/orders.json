@@ -10462,9 +10462,11 @@
             }
         ],
         "total_amount": 899.99,
-        "status": "pending",
+        "status": "cancelled",
         "shipping_address": "123 Test Street",
-        "created_at": "2025-12-03T03:04:43.804045"
+        "created_at": "2025-12-03T03:04:43.804045",
+        "cancelled_at": "2025-12-03T07:49:57.902672",
+        "cart_restored": true
     },
     {
         "id": 503,
@@ -10479,9 +10481,11 @@
             }
         ],
         "total_amount": 899.99,
-        "status": "pending",
+        "status": "cancelled",
         "shipping_address": "123 Test Street",
-        "created_at": "2025-12-03T03:04:52.487761"
+        "created_at": "2025-12-03T03:04:52.487761",
+        "cancelled_at": "2025-12-03T08:02:35.341813",
+        "cart_restored": true
     },
     {
         "id": 504,
@@ -10496,9 +10500,11 @@
             }
         ],
         "total_amount": 899.99,
-        "status": "pending",
+        "status": "cancelled",
         "shipping_address": "123 Test Street",
-        "created_at": "2025-12-03T03:05:00.253700"
+        "created_at": "2025-12-03T03:05:00.253700",
+        "cancelled_at": "2025-12-03T08:06:52.958891",
+        "cart_restored": true
     },
     {
         "id": 505,
@@ -10530,9 +10536,11 @@
             }
         ],
         "total_amount": 899.99,
-        "status": "pending",
+        "status": "cancelled",
         "shipping_address": "123 Test Street",
-        "created_at": "2025-12-03T03:10:10.128924"
+        "created_at": "2025-12-03T03:10:10.128924",
+        "cancelled_at": "2025-12-03T08:16:51.910520",
+        "cart_restored": true
     },
     {
         "id": 507,
@@ -11927,5 +11935,379 @@
         "status": "pending",
         "shipping_address": "123 Test Street",
         "created_at": "2025-12-03T04:43:03.978026"
+    },
+    {
+        "id": 589,
+        "user_id": 680,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "sasda",
+        "created_at": "2025-12-03T06:48:29.938853"
+    },
+    {
+        "id": 590,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T07:48:43.809179"
+    },
+    {
+        "id": 591,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T07:49:27.584418"
+    },
+    {
+        "id": 592,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T07:49:53.900283"
+    },
+    {
+        "id": 593,
+        "user_id": 441,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T07:50:47.000593"
+    },
+    {
+        "id": 594,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:00:32.870541"
+    },
+    {
+        "id": 595,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:01:18.895832"
+    },
+    {
+        "id": 596,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:02:02.686300"
+    },
+    {
+        "id": 597,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:02:31.885813"
+    },
+    {
+        "id": 598,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:02:52.761232"
+    },
+    {
+        "id": 599,
+        "user_id": 441,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:03:21.802700"
+    },
+    {
+        "id": 600,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:05:32.297473"
+    },
+    {
+        "id": 601,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:06:17.270019"
+    },
+    {
+        "id": 602,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:06:48.309206"
+    },
+    {
+        "id": 603,
+        "user_id": 441,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:07:25.718192"
+    },
+    {
+        "id": 604,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:09:03.014973"
+    },
+    {
+        "id": 605,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:09:28.856955"
+    },
+    {
+        "id": 606,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:15:52.326961"
+    },
+    {
+        "id": 607,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:16:25.138979"
+    },
+    {
+        "id": 608,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:16:48.590268"
+    },
+    {
+        "id": 609,
+        "user_id": 444,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:17:01.207880"
+    },
+    {
+        "id": 610,
+        "user_id": 441,
+        "items": [
+            {
+                "product_id": 1,
+                "product_name": "Laptop Pro 15\"",
+                "quantity": 1,
+                "price": 899.99,
+                "subtotal": 899.99
+            }
+        ],
+        "total_amount": 899.99,
+        "status": "pending",
+        "shipping_address": "123 Test Street",
+        "created_at": "2025-12-03T08:17:26.805102"
     }
 ]

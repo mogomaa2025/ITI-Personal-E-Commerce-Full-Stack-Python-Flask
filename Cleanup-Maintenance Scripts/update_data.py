@@ -42,7 +42,7 @@ def add_products(category, count=10):
             'price': round(random.uniform(9.99, 999.99), 2),
             'category': category,
             'stock': random.randint(10, 200),
-            'image_url': f'https://via.placeholder.com/400x300/3498db/ffffff?text=Product+{next_id + i}',
+            'image_url': f'https://via.placeholdder.com/400x300/3498db/ffffff?text=Product+{next_id + i}',
             'created_at': datetime.now().isoformat()
         })
     

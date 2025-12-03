@@ -37,91 +37,92 @@ CITIES = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelp
           'Seattle', 'Denver', 'Boston']
 
 # Product data by category
+# Product data by category - using local images from static/img
 PRODUCTS_DATA = {
     'Electronics': [
-        ('Laptop Pro 15"', 'High-performance laptop with 16GB RAM and 512GB SSD', 1299.99, 'https://via.placeholder.com/400x300/3498db/ffffff?text=Laptop'),
-        ('Wireless Mouse', 'Ergonomic wireless mouse with precision tracking', 29.99, 'https://via.placeholder.com/400x300/2ecc71/ffffff?text=Mouse'),
-        ('Mechanical Keyboard', 'RGB mechanical keyboard with Cherry MX switches', 149.99, 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Keyboard'),
-        ('4K Monitor 27"', 'Ultra HD 4K monitor with HDR support', 449.99, 'https://via.placeholder.com/400x300/9b59b6/ffffff?text=Monitor'),
-        ('USB-C Hub', '7-in-1 USB-C hub with HDMI and ethernet', 59.99, 'https://via.placeholder.com/400x300/f39c12/ffffff?text=USB+Hub'),
-        ('Webcam HD', '1080p HD webcam with auto-focus', 79.99, 'https://via.placeholder.com/400x300/1abc9c/ffffff?text=Webcam'),
-        ('Bluetooth Speaker', 'Portable waterproof Bluetooth speaker', 89.99, 'https://via.placeholder.com/400x300/34495e/ffffff?text=Speaker'),
-        ('Wireless Earbuds', 'True wireless earbuds with active noise cancellation', 199.99, 'https://via.placeholder.com/400x300/16a085/ffffff?text=Earbuds'),
-        ('Gaming Headset', 'Pro gaming headset with 7.1 surround sound', 129.99, 'https://via.placeholder.com/400x300/c0392b/ffffff?text=Headset'),
-        ('Portable SSD 1TB', 'External solid state drive 1TB', 149.99, 'https://via.placeholder.com/400x300/2c3e50/ffffff?text=SSD'),
-        ('Smart Watch', 'Fitness tracker smart watch with heart rate monitor', 249.99, 'https://via.placeholder.com/400x300/8e44ad/ffffff?text=Watch'),
-        ('Tablet 10"', 'Android tablet with 64GB storage', 299.99, 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Tablet'),
-        ('Power Bank 20000mAh', 'Fast charging power bank', 39.99, 'https://via.placeholder.com/400x300/d35400/ffffff?text=Power+Bank'),
-        ('HDMI Cable 10ft', 'Premium 4K HDMI cable', 19.99, 'https://via.placeholder.com/400x300/7f8c8d/ffffff?text=HDMI'),
-        ('Laptop Stand', 'Adjustable aluminum laptop stand', 49.99, 'https://via.placeholder.com/400x300/95a5a6/ffffff?text=Stand'),
+        ('Laptop Pro 15"', 'High-performance laptop with 16GB RAM and 512GB SSD', 1299.99, '/static/img/laptop.png'),
+        ('Wireless Mouse', 'Ergonomic wireless mouse with precision tracking', 29.99, '/static/img/mouse.png'),
+        ('Mechanical Keyboard', 'RGB mechanical keyboard with Cherry MX switches', 149.99, '/static/img/keyboard.png'),
+        ('4K Monitor 27"', 'Ultra HD 4K monitor with HDR support', 449.99, '/static/img/mointor.png'),
+        ('USB-C Hub', '7-in-1 USB-C hub with HDMI and ethernet', 59.99, '/static/img/usbhub.png'),
+        ('Webcam HD', '1080p HD webcam with auto-focus', 79.99, '/static/img/cam.png'),
+        ('Bluetooth Speaker', 'Portable waterproof Bluetooth speaker', 89.99, '/static/img/speaker.png'),
+        ('Wireless Earbuds', 'True wireless earbuds with active noise cancellation', 199.99, '/static/img/other.png'),
+        ('Gaming Headset', 'Pro gaming headset with 7.1 surround sound', 129.99, '/static/img/other.png'),
+        ('Portable SSD 1TB', 'External solid state drive 1TB', 149.99, '/static/img/other.png'),
+        ('Smart Watch', 'Fitness tracker smart watch with heart rate monitor', 249.99, '/static/img/other.png'),
+        ('Tablet 10"', 'Android tablet with 64GB storage', 299.99, '/static/img/other.png'),
+        ('Power Bank 20000mAh', 'Fast charging power bank', 39.99, '/static/img/other.png'),
+        ('HDMI Cable 10ft', 'Premium 4K HDMI cable', 19.99, '/static/img/other.png'),
+        ('Laptop Stand', 'Adjustable aluminum laptop stand', 49.99, '/static/img/other.png'),
     ],
     'Clothing': [
-        ('Classic T-Shirt', 'Comfortable cotton t-shirt', 19.99, 'https://via.placeholder.com/400x300/3498db/ffffff?text=T-Shirt'),
-        ('Denim Jeans', 'Slim fit denim jeans', 59.99, 'https://via.placeholder.com/400x300/2ecc71/ffffff?text=Jeans'),
-        ('Leather Jacket', 'Genuine leather jacket', 199.99, 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Jacket'),
-        ('Running Shoes', 'Lightweight running shoes', 89.99, 'https://via.placeholder.com/400x300/9b59b6/ffffff?text=Shoes'),
-        ('Hoodie', 'Warm fleece hoodie', 49.99, 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Hoodie'),
-        ('Polo Shirt', 'Classic polo shirt', 34.99, 'https://via.placeholder.com/400x300/1abc9c/ffffff?text=Polo'),
-        ('Cargo Pants', 'Multi-pocket cargo pants', 54.99, 'https://via.placeholder.com/400x300/34495e/ffffff?text=Cargo'),
-        ('Winter Coat', 'Insulated winter coat', 149.99, 'https://via.placeholder.com/400x300/16a085/ffffff?text=Coat'),
-        ('Baseball Cap', 'Adjustable baseball cap', 24.99, 'https://via.placeholder.com/400x300/c0392b/ffffff?text=Cap'),
-        ('Sneakers', 'Casual canvas sneakers', 64.99, 'https://via.placeholder.com/400x300/2c3e50/ffffff?text=Sneakers'),
-        ('Dress Shirt', 'Formal dress shirt', 44.99, 'https://via.placeholder.com/400x300/8e44ad/ffffff?text=Dress+Shirt'),
-        ('Chino Pants', 'Slim fit chino pants', 49.99, 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Chinos'),
-        ('Bomber Jacket', 'Lightweight bomber jacket', 79.99, 'https://via.placeholder.com/400x300/d35400/ffffff?text=Bomber'),
-        ('Athletic Shorts', 'Breathable athletic shorts', 29.99, 'https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Shorts'),
-        ('Wool Sweater', 'Warm wool sweater', 69.99, 'https://via.placeholder.com/400x300/95a5a6/ffffff?text=Sweater'),
+        ('Classic T-Shirt', 'Comfortable cotton t-shirt', 19.99, '/static/img/other.png'),
+        ('Denim Jeans', 'Slim fit denim jeans', 59.99, '/static/img/other.png'),
+        ('Leather Jacket', 'Genuine leather jacket', 199.99, '/static/img/other.png'),
+        ('Running Shoes', 'Lightweight running shoes', 89.99, '/static/img/other.png'),
+        ('Hoodie', 'Warm fleece hoodie', 49.99, '/static/img/other.png'),
+        ('Polo Shirt', 'Classic polo shirt', 34.99, '/static/img/other.png'),
+        ('Cargo Pants', 'Multi-pocket cargo pants', 54.99, '/static/img/other.png'),
+        ('Winter Coat', 'Insulated winter coat', 149.99, '/static/img/other.png'),
+        ('Baseball Cap', 'Adjustable baseball cap', 24.99, '/static/img/other.png'),
+        ('Sneakers', 'Casual canvas sneakers', 64.99, '/static/img/other.png'),
+        ('Dress Shirt', 'Formal dress shirt', 44.99, '/static/img/other.png'),
+        ('Chino Pants', 'Slim fit chino pants', 49.99, '/static/img/other.png'),
+        ('Bomber Jacket', 'Lightweight bomber jacket', 79.99, '/static/img/other.png'),
+        ('Athletic Shorts', 'Breathable athletic shorts', 29.99, '/static/img/other.png'),
+        ('Wool Sweater', 'Warm wool sweater', 69.99, '/static/img/other.png'),
     ],
     'Books': [
-        ('Python Programming Guide', 'Complete guide to Python programming', 39.99, 'https://via.placeholder.com/400x300/3498db/ffffff?text=Python+Book'),
-        ('Mystery Novel Collection', 'Set of 3 bestselling mystery novels', 29.99, 'https://via.placeholder.com/400x300/2ecc71/ffffff?text=Mystery'),
-        ('Science Fiction Anthology', 'Classic sci-fi short stories', 24.99, 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Sci-Fi'),
-        ('Cooking Masterclass', 'Professional cooking techniques', 34.99, 'https://via.placeholder.com/400x300/9b59b6/ffffff?text=Cooking'),
-        ('Fitness & Nutrition', 'Complete guide to healthy living', 27.99, 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Fitness'),
-        ('Business Strategy', 'Modern business management strategies', 44.99, 'https://via.placeholder.com/400x300/1abc9c/ffffff?text=Business'),
-        ('Graphic Design Basics', 'Introduction to graphic design', 32.99, 'https://via.placeholder.com/400x300/34495e/ffffff?text=Design'),
-        ('World History', 'Comprehensive world history textbook', 49.99, 'https://via.placeholder.com/400x300/16a085/ffffff?text=History'),
-        ('Photography Guide', 'Digital photography for beginners', 36.99, 'https://via.placeholder.com/400x300/c0392b/ffffff?text=Photo'),
-        ('Self-Help Classic', 'Life-changing self-improvement book', 22.99, 'https://via.placeholder.com/400x300/2c3e50/ffffff?text=Self-Help'),
-        ('Travel Guide Europe', 'Complete European travel guide', 31.99, 'https://via.placeholder.com/400x300/8e44ad/ffffff?text=Travel'),
-        ('Children Story Collection', 'Classic bedtime stories for kids', 19.99, 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Kids'),
-        ('Biography Collection', 'Inspiring life stories', 28.99, 'https://via.placeholder.com/400x300/d35400/ffffff?text=Biography'),
-        ('Philosophy Essentials', 'Introduction to philosophy', 38.99, 'https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Philosophy'),
-        ('Art History', 'Survey of Western art history', 42.99, 'https://via.placeholder.com/400x300/95a5a6/ffffff?text=Art'),
+        ('Python Programming Guide', 'Complete guide to Python programming', 39.99, '/static/img/other.png'),
+        ('Mystery Novel Collection', 'Set of 3 bestselling mystery novels', 29.99, '/static/img/other.png'),
+        ('Science Fiction Anthology', 'Classic sci-fi short stories', 24.99, '/static/img/other.png'),
+        ('Cooking Masterclass', 'Professional cooking techniques', 34.99, '/static/img/other.png'),
+        ('Fitness & Nutrition', 'Complete guide to healthy living', 27.99, '/static/img/other.png'),
+        ('Business Strategy', 'Modern business management strategies', 44.99, '/static/img/other.png'),
+        ('Graphic Design Basics', 'Introduction to graphic design', 32.99, '/static/img/other.png'),
+        ('World History', 'Comprehensive world history textbook', 49.99, '/static/img/other.png'),
+        ('Photography Guide', 'Digital photography for beginners', 36.99, '/static/img/other.png'),
+        ('Self-Help Classic', 'Life-changing self-improvement book', 22.99, '/static/img/other.png'),
+        ('Travel Guide Europe', 'Complete European travel guide', 31.99, '/static/img/other.png'),
+        ('Children Story Collection', 'Classic bedtime stories for kids', 19.99, '/static/img/other.png'),
+        ('Biography Collection', 'Inspiring life stories', 28.99, '/static/img/other.png'),
+        ('Philosophy Essentials', 'Introduction to philosophy', 38.99, '/static/img/other.png'),
+        ('Art History', 'Survey of Western art history', 42.99, '/static/img/other.png'),
     ],
     'Home & Garden': [
-        ('Coffee Maker', 'Programmable 12-cup coffee maker', 79.99, 'https://via.placeholder.com/400x300/3498db/ffffff?text=Coffee+Maker'),
-        ('Blender Pro', 'High-speed blender for smoothies', 129.99, 'https://via.placeholder.com/400x300/2ecc71/ffffff?text=Blender'),
-        ('Garden Hose 50ft', 'Expandable garden hose', 34.99, 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Hose'),
-        ('LED Desk Lamp', 'Adjustable LED desk lamp', 44.99, 'https://via.placeholder.com/400x300/9b59b6/ffffff?text=Lamp'),
-        ('Storage Bins Set', 'Set of 6 plastic storage bins', 39.99, 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Bins'),
-        ('Vacuum Cleaner', 'Bagless upright vacuum cleaner', 149.99, 'https://via.placeholder.com/400x300/1abc9c/ffffff?text=Vacuum'),
-        ('Cookware Set', '10-piece non-stick cookware set', 199.99, 'https://via.placeholder.com/400x300/34495e/ffffff?text=Cookware'),
-        ('Bath Towel Set', 'Set of 6 premium cotton towels', 49.99, 'https://via.placeholder.com/400x300/16a085/ffffff?text=Towels'),
-        ('Plant Pots Set', 'Ceramic plant pots with drainage', 29.99, 'https://via.placeholder.com/400x300/c0392b/ffffff?text=Pots'),
-        ('Tool Set', '100-piece home repair tool set', 89.99, 'https://via.placeholder.com/400x300/2c3e50/ffffff?text=Tools'),
-        ('Bed Sheet Set', 'Queen size microfiber sheet set', 54.99, 'https://via.placeholder.com/400x300/8e44ad/ffffff?text=Sheets'),
-        ('Wall Clock', 'Modern minimalist wall clock', 39.99, 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Clock'),
-        ('Cutting Board Set', 'Bamboo cutting board set of 3', 34.99, 'https://via.placeholder.com/400x300/d35400/ffffff?text=Cutting+Board'),
-        ('Shower Curtain', 'Waterproof fabric shower curtain', 24.99, 'https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Curtain'),
-        ('Garden Tools Kit', 'Essential gardening tools kit', 64.99, 'https://via.placeholder.com/400x300/95a5a6/ffffff?text=Garden+Tools'),
+        ('Coffee Maker', 'Programmable 12-cup coffee maker', 79.99, '/static/img/other.png'),
+        ('Blender Pro', 'High-speed blender for smoothies', 129.99, '/static/img/other.png'),
+        ('Garden Hose 50ft', 'Expandable garden hose', 34.99, '/static/img/other.png'),
+        ('LED Desk Lamp', 'Adjustable LED desk lamp', 44.99, '/static/img/other.png'),
+        ('Storage Bins Set', 'Set of 6 plastic storage bins', 39.99, '/static/img/other.png'),
+        ('Vacuum Cleaner', 'Bagless upright vacuum cleaner', 149.99, '/static/img/other.png'),
+        ('Cookware Set', '10-piece non-stick cookware set', 199.99, '/static/img/other.png'),
+        ('Bath Towel Set', 'Set of 6 premium cotton towels', 49.99, '/static/img/other.png'),
+        ('Plant Pots Set', 'Ceramic plant pots with drainage', 29.99, '/static/img/other.png'),
+        ('Tool Set', '100-piece home repair tool set', 89.99, '/static/img/other.png'),
+        ('Bed Sheet Set', 'Queen size microfiber sheet set', 54.99, '/static/img/other.png'),
+        ('Wall Clock', 'Modern minimalist wall clock', 39.99, '/static/img/other.png'),
+        ('Cutting Board Set', 'Bamboo cutting board set of 3', 34.99, '/static/img/other.png'),
+        ('Shower Curtain', 'Waterproof fabric shower curtain', 24.99, '/static/img/other.png'),
+        ('Garden Tools Kit', 'Essential gardening tools kit', 64.99, '/static/img/other.png'),
     ],
     'Sports': [
-        ('Yoga Mat', 'Non-slip exercise yoga mat', 29.99, 'https://via.placeholder.com/400x300/3498db/ffffff?text=Yoga+Mat'),
-        ('Dumbbell Set', 'Adjustable dumbbell set 50lbs', 149.99, 'https://via.placeholder.com/400x300/2ecc71/ffffff?text=Dumbbells'),
-        ('Resistance Bands', 'Set of 5 resistance bands', 24.99, 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Bands'),
-        ('Jump Rope', 'Speed jump rope for cardio', 14.99, 'https://via.placeholder.com/400x300/9b59b6/ffffff?text=Jump+Rope'),
-        ('Basketball', 'Official size basketball', 34.99, 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Basketball'),
-        ('Soccer Ball', 'Professional soccer ball size 5', 29.99, 'https://via.placeholder.com/400x300/1abc9c/ffffff?text=Soccer'),
-        ('Tennis Racket', 'Lightweight tennis racket', 79.99, 'https://via.placeholder.com/400x300/34495e/ffffff?text=Racket'),
-        ('Bicycle Helmet', 'Safety certified bike helmet', 49.99, 'https://via.placeholder.com/400x300/16a085/ffffff?text=Helmet'),
-        ('Water Bottle 32oz', 'Insulated stainless steel bottle', 24.99, 'https://via.placeholder.com/400x300/c0392b/ffffff?text=Bottle'),
-        ('Gym Bag', 'Durable sports gym bag', 44.99, 'https://via.placeholder.com/400x300/2c3e50/ffffff?text=Gym+Bag'),
-        ('Boxing Gloves', 'Training boxing gloves 12oz', 54.99, 'https://via.placeholder.com/400x300/8e44ad/ffffff?text=Gloves'),
-        ('Skateboard', 'Complete skateboard for beginners', 69.99, 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Skateboard'),
-        ('Badminton Set', 'Complete badminton set with net', 59.99, 'https://via.placeholder.com/400x300/d35400/ffffff?text=Badminton'),
-        ('Swimming Goggles', 'Anti-fog swimming goggles', 19.99, 'https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Goggles'),
-        ('Fitness Tracker', 'Basic fitness activity tracker', 39.99, 'https://via.placeholder.com/400x300/95a5a6/ffffff?text=Tracker'),
+        ('Yoga Mat', 'Non-slip exercise yoga mat', 29.99, '/static/img/other.png'),
+        ('Dumbbell Set', 'Adjustable dumbbell set 50lbs', 149.99, '/static/img/other.png'),
+        ('Resistance Bands', 'Set of 5 resistance bands', 24.99, '/static/img/other.png'),
+        ('Jump Rope', 'Speed jump rope for cardio', 14.99, '/static/img/other.png'),
+        ('Basketball', 'Official size basketball', 34.99, '/static/img/other.png'),
+        ('Soccer Ball', 'Professional soccer ball size 5', 29.99, '/static/img/other.png'),
+        ('Tennis Racket', 'Lightweight tennis racket', 79.99, '/static/img/other.png'),
+        ('Bicycle Helmet', 'Safety certified bike helmet', 49.99, '/static/img/other.png'),
+        ('Water Bottle 32oz', 'Insulated stainless steel bottle', 24.99, '/static/img/other.png'),
+        ('Gym Bag', 'Durable sports gym bag', 44.99, '/static/img/other.png'),
+        ('Boxing Gloves', 'Training boxing gloves 12oz', 54.99, '/static/img/other.png'),
+        ('Skateboard', 'Complete skateboard for beginners', 69.99, '/static/img/other.png'),
+        ('Badminton Set', 'Complete badminton set with net', 59.99, '/static/img/other.png'),
+        ('Swimming Goggles', 'Anti-fog swimming goggles', 19.99, '/static/img/other.png'),
+        ('Fitness Tracker', 'Basic fitness activity tracker', 39.99, '/static/img/other.png'),
     ]
 }
 
@@ -155,38 +156,35 @@ REVIEW_COMMENTS = [
 
 ORDER_STATUSES = ['pending', 'processing', 'shipped', 'delivered', 'cancelled']
 
-def get_random_image_url(width=400, height=300, category=None):
+def get_local_image_for_category(category):
     """
-    Generate a random image URL using reliable services
+    Get a local image path from static/img based on category
     
     Args:
-        width (int): Image width in pixels
-        height (int): Image height in pixels
-        category (str): Optional category keyword (not used but kept for compatibility)
+        category (str): Product category name
     
     Returns:
-        str: Random image URL
+        str: Local image path
     """
-    # Use reliable image services
-    services = [
-        # Picsum Photos with random seeds
-        f"https://picsum.photos/{width}/{height}?random={random.randint(1, 1000)}",
-        f"https://picsum.photos/{width}/{height}?random={random.randint(1, 1000)}",
-        
-        # DummyImage service - very reliable
-        f"https://dummyimage.com/{width}x{height}/3498db/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/2ecc71/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/e74c3c/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/9b59b6/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/f39c12/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/1abc9c/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/34495e/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/16a085/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/c0392b/ffffff&text=Product",
-        f"https://dummyimage.com/{width}x{height}/2c3e50/ffffff&text=Product",
-    ]
+    # Map categories to available local images
+    category_images = {
+        'Electronics': [
+            '/static/img/laptop.png',
+            '/static/img/mouse.png',
+            '/static/img/keyboard.png',
+            '/static/img/mointor.png',
+            '/static/img/speaker.png',
+            '/static/img/cam.png',
+            '/static/img/usbhub.png'
+        ],
+        'Clothing': ['/static/img/other.png'],
+        'Books': ['/static/img/other.png'],
+        'Home & Garden': ['/static/img/other.png'],
+        'Sports': ['/static/img/other.png']
+    }
     
-    return random.choice(services)
+    images = category_images.get(category, ['/static/img/placeholder.svg'])
+    return random.choice(images)
 
 def get_category_keywords():
     """
@@ -253,14 +251,8 @@ def generate_products():
     category_keywords = get_category_keywords()
     
     for category, items in PRODUCTS_DATA.items():
-        for name, description, price, _ in items:  # Ignore the old image_url
-            # Generate random image URL based on category
-            keywords = category_keywords.get(category, [])
-            if keywords:
-                keyword = random.choice(keywords)
-                image_url = get_random_image_url(category=keyword)
-            else:
-                image_url = get_random_image_url()
+        for name, description, price, image_url in items:  # Use the image_url from PRODUCTS_DATA
+            # image_url is now already set from PRODUCTS_DATA with local paths
             
             products.append({
                 'id': product_id,
