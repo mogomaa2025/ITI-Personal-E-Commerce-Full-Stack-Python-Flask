@@ -197,6 +197,18 @@
 </div>
 
 <script>
+    const localImagePaths = [
+        '/static/img/cam.png',
+        '/static/img/i3ti.png',
+        '/static/img/keyboard.png',
+        '/static/img/laptop.png',
+        '/static/img/mointor.png',
+        '/static/img/mouse.png',
+        '/static/img/other.png',
+        '/static/img/placeholder.svg',
+        '/static/img/speaker.png',
+        '/static/img/usbhub.png'
+    ];
     // Extract product ID from URL path
     let productId = parseInt(window.location.pathname.split('/').pop());
     let currentProduct = null;
@@ -251,7 +263,8 @@
         document.getElementById('product-detail-stock').textContent = `${product.stock || 0} units`;
         
         // Image
-        const imgUrl = product.image_url || '/static/img/placeholder.png';
+        const randomIndex = Math.floor(Math.random() * localImagePaths.length);
+        const imgUrl = localImagePaths[randomIndex];
         document.getElementById('product-detail-image').src = imgUrl;
         document.getElementById('product-detail-image').alt = product.name;
         
