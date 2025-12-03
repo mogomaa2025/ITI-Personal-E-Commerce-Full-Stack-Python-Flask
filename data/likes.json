@@ -1,0 +1,410 @@
+[
+    {
+        "id": 1,
+        "user_id": 2,
+        "product_id": 1,
+        "created_at": "2025-10-19T22:26:04.626577"
+    },
+    {
+        "id": 2,
+        "user_id": 64,
+        "product_id": 1,
+        "created_at": "2025-10-19T22:28:24.707825"
+    },
+    {
+        "id": 3,
+        "user_id": 64,
+        "product_id": 2,
+        "created_at": "2025-10-19T22:28:26.774450"
+    },
+    {
+        "id": 4,
+        "user_id": 64,
+        "product_id": 3,
+        "created_at": "2025-10-19T22:28:29.967138"
+    },
+    {
+        "id": 5,
+        "user_id": 64,
+        "product_id": 8,
+        "created_at": "2025-10-19T22:32:06.271067"
+    },
+    {
+        "id": 6,
+        "user_id": 40,
+        "product_id": 98,
+        "created_at": "2025-10-21T17:53:51.715421"
+    },
+    {
+        "id": 9,
+        "user_id": 47,
+        "product_id": 1,
+        "created_at": "2025-10-21T23:53:04.463472"
+    },
+    {
+        "id": 10,
+        "user_id": 64,
+        "product_id": 4,
+        "created_at": "2025-11-13T14:39:33.975987"
+    },
+    {
+        "id": 11,
+        "user_id": 64,
+        "product_id": 5,
+        "created_at": "2025-11-13T14:39:36.927427"
+    },
+    {
+        "id": 12,
+        "user_id": 40,
+        "product_id": 1,
+        "created_at": "2025-11-13T14:40:56.578021"
+    },
+    {
+        "id": 13,
+        "user_id": 118,
+        "product_id": 1,
+        "created_at": "2025-11-13T14:41:23.063634"
+    },
+    {
+        "id": 14,
+        "user_id": 64,
+        "product_id": 7,
+        "created_at": "2025-11-13T14:55:11.160593"
+    },
+    {
+        "id": 15,
+        "user_id": 64,
+        "product_id": 10,
+        "created_at": "2025-11-13T14:56:01.265078"
+    },
+    {
+        "id": 16,
+        "user_id": 40,
+        "product_id": 2,
+        "created_at": "2025-11-13T20:54:25.731947"
+    },
+    {
+        "id": 17,
+        "user_id": 40,
+        "product_id": 3,
+        "created_at": "2025-11-13T20:54:27.929178"
+    },
+    {
+        "id": 18,
+        "user_id": 139,
+        "product_id": 1,
+        "created_at": "2025-11-16T02:40:38.884843"
+    },
+    {
+        "id": 19,
+        "user_id": 139,
+        "product_id": 2,
+        "created_at": "2025-11-16T02:43:56.597596"
+    },
+    {
+        "id": 20,
+        "user_id": 144,
+        "product_id": 1,
+        "created_at": "2025-11-16T03:48:48.670690"
+    },
+    {
+        "id": 21,
+        "user_id": 146,
+        "product_id": 1,
+        "created_at": "2025-11-16T04:21:23.534609"
+    },
+    {
+        "id": 22,
+        "user_id": 40,
+        "product_id": 5,
+        "created_at": "2025-11-16T05:50:41.264814"
+    },
+    {
+        "id": 23,
+        "user_id": 275,
+        "product_id": 2,
+        "created_at": "2025-11-23T19:21:56.491486"
+    },
+    {
+        "id": 24,
+        "user_id": 275,
+        "product_id": 1,
+        "created_at": "2025-11-23T20:18:54.374221"
+    },
+    {
+        "id": 25,
+        "user_id": 445,
+        "product_id": 1,
+        "created_at": "2025-11-30T04:36:11.314708"
+    },
+    {
+        "id": 26,
+        "user_id": 447,
+        "product_id": 1,
+        "created_at": "2025-12-02T09:07:26.836783"
+    },
+    {
+        "id": 27,
+        "user_id": 447,
+        "product_id": 7,
+        "created_at": "2025-12-02T09:07:41.816055"
+    },
+    {
+        "id": 28,
+        "user_id": 275,
+        "product_id": 3,
+        "created_at": "2025-12-03T00:02:35.850724"
+    },
+    {
+        "id": 29,
+        "user_id": 275,
+        "product_id": 4,
+        "created_at": "2025-12-03T00:09:51.121100"
+    },
+    {
+        "id": 30,
+        "user_id": 275,
+        "product_id": 5,
+        "created_at": "2025-12-03T00:11:37.722029"
+    },
+    {
+        "id": 31,
+        "user_id": 275,
+        "product_id": 6,
+        "created_at": "2025-12-03T00:12:04.156029"
+    },
+    {
+        "id": 32,
+        "user_id": 623,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:13:06.191001"
+    },
+    {
+        "id": 33,
+        "user_id": 624,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:14:35.897065"
+    },
+    {
+        "id": 34,
+        "user_id": 625,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:15:03.367949"
+    },
+    {
+        "id": 35,
+        "user_id": 626,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:19:54.618540"
+    },
+    {
+        "id": 36,
+        "user_id": 628,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:24:00.217538"
+    },
+    {
+        "id": 37,
+        "user_id": 629,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:24:37.235272"
+    },
+    {
+        "id": 38,
+        "user_id": 630,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:27:00.046356"
+    },
+    {
+        "id": 39,
+        "user_id": 631,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:28:41.747341"
+    },
+    {
+        "id": 40,
+        "user_id": 632,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:30:22.530928"
+    },
+    {
+        "id": 41,
+        "user_id": 633,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:31:10.397698"
+    },
+    {
+        "id": 42,
+        "user_id": 634,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:32:19.529290"
+    },
+    {
+        "id": 43,
+        "user_id": 635,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:33:02.476764"
+    },
+    {
+        "id": 44,
+        "user_id": 636,
+        "product_id": 1,
+        "created_at": "2025-12-03T00:33:05.206066"
+    },
+    {
+        "id": 45,
+        "user_id": 638,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:05:27.606439"
+    },
+    {
+        "id": 46,
+        "user_id": 639,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:05:31.251420"
+    },
+    {
+        "id": 47,
+        "user_id": 641,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:11:05.036147"
+    },
+    {
+        "id": 48,
+        "user_id": 642,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:11:08.433522"
+    },
+    {
+        "id": 49,
+        "user_id": 644,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:14:23.272702"
+    },
+    {
+        "id": 50,
+        "user_id": 645,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:14:26.415614"
+    },
+    {
+        "id": 51,
+        "user_id": 647,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:43:37.572683"
+    },
+    {
+        "id": 52,
+        "user_id": 648,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:43:40.471224"
+    },
+    {
+        "id": 53,
+        "user_id": 650,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:56:25.694643"
+    },
+    {
+        "id": 54,
+        "user_id": 651,
+        "product_id": 1,
+        "created_at": "2025-12-03T03:56:29.080981"
+    },
+    {
+        "id": 55,
+        "user_id": 655,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:07:42.876981"
+    },
+    {
+        "id": 56,
+        "user_id": 656,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:07:49.882789"
+    },
+    {
+        "id": 57,
+        "user_id": 658,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:12:47.775634"
+    },
+    {
+        "id": 58,
+        "user_id": 660,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:20:05.153986"
+    },
+    {
+        "id": 59,
+        "user_id": 661,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:20:09.546512"
+    },
+    {
+        "id": 60,
+        "user_id": 663,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:24:45.582772"
+    },
+    {
+        "id": 61,
+        "user_id": 664,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:24:49.761241"
+    },
+    {
+        "id": 62,
+        "user_id": 666,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:26:58.779563"
+    },
+    {
+        "id": 63,
+        "user_id": 667,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:27:05.146775"
+    },
+    {
+        "id": 64,
+        "user_id": 669,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:29:53.587971"
+    },
+    {
+        "id": 65,
+        "user_id": 670,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:29:58.231215"
+    },
+    {
+        "id": 66,
+        "user_id": 672,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:34:15.697058"
+    },
+    {
+        "id": 67,
+        "user_id": 673,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:34:22.041462"
+    },
+    {
+        "id": 68,
+        "user_id": 675,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:42:43.203743"
+    },
+    {
+        "id": 69,
+        "user_id": 676,
+        "product_id": 1,
+        "created_at": "2025-12-03T04:42:50.815435"
+    },
+    {
+        "id": 70,
+        "user_id": 679,
+        "product_id": 1,
+        "created_at": "2025-12-03T05:49:03.964944"
+    }
+]

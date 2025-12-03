@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+
+{% block title %}Help & FAQ - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Help & FAQ</h1>
+        <p>Find answers to common questions and get help with your account.</p>
+    </div>
+
+    <!-- Search Help -->
+    <div class="search-section">
+        <div class="search-box">
+            <input type="text" id="help-search" placeholder="Search help articles..." class="form-input">
+            <button id="search-help-btn" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section">
+        <label for="category-filter">Filter by category:</label>
+        <select id="category-filter" class="form-select">
+            <option value="">All Categories</option>
+        </select>
+    </div>
+
+    <!-- Help Articles -->
+    <div class="help-articles" id="help-articles">
+        <div class="loading">Loading help articles...</div>
+    </div>
+
+    <!-- Help Article Modal -->
+    <div id="help-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-question"></h2>
+            <div id="modal-answer"></div>
+            <div class="modal-actions">
+                <button id="mark-helpful-btn" class="btn btn-primary">This was helpful</button>
+                <button id="modal-close-btn" class="btn btn-outline">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.search-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+}
+
+.search-box input {
+    flex: 1;
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.help-articles {
+    display: grid;
+    gap: 1rem;
+}
+
+.help-article {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.help-article:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #007bff;
+}
+
+.help-article h3 {
+    margin: 0 0 0.5rem 0;
+    color: #007bff;
+}
+
+.help-article p {
+    margin: 0 0 1rem 0;
+    color: #6c757d;
+}
+
+.help-article .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.help-article .category {
+    background: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.help-article .helpful-count {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Helpful button states */
+#mark-helpful-btn.helpful-marked {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    cursor: not-allowed;
+}
+
+#mark-helpful-btn.helpful-marked:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: none;
+}
+
+#mark-helpful-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+</style>
+
+<script>
+let currentHelpData = [];
+let currentArticleId = null;
+
+// Load help articles
+async function loadHelpArticles(category = '', search = '') {
+    try {
+        let url = '/api/help';
+        const params = new URLSearchParams();
+        if (category) params.append('category', category);
+        if (search) params.append('search', search);
+        if (params.toString()) url += '?' + params.toString();
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.success) {
+            currentHelpData = data.data;
+            displayHelpArticles(data.data);
+        } else {
+            showAlert('Failed to load help articles', 'error');
+        }
+    } catch (error) {
+        console.error('Error loading help articles:', error);
+        showAlert('Error loading help articles', 'error');
+    }
+}
+
+// Display help articles
+function displayHelpArticles(articles) {
+    const container = document.getElementById('help-articles');
+    
+    if (articles.length === 0) {
+        container.innerHTML = '<div class="no-results">No help articles found.</div>';
+        return;
+    }
+
+    container.innerHTML = articles.map(article => `
+        <div class="help-article" onclick="showHelpArticle(${article.id})">
+            <h3>${article.question}</h3>
+            <p>${article.answer.substring(0, 150)}${article.answer.length > 150 ? '...' : ''}</p>
+            <div class="meta">
+                <span class="category">${article.category}</span>
+                <span class="helpful-count">👍 ${article.helpful_count || 0} helpful</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Show help article modal
+async function showHelpArticle(articleId) {
+    const article = currentHelpData.find(a => a.id === articleId);
+    if (!article) return;
+
+    currentArticleId = articleId;
+    document.getElementById('modal-question').textContent = article.question;
+    document.getElementById('modal-answer').innerHTML = `<p>${article.answer}</p>`;
+    
+    // Check if already marked as helpful
+    if (isArticleHelpful(articleId)) {
+        updateHelpfulButton(true);
+    } else {
+        updateHelpfulButton(false);
+    }
+    
+    document.getElementById('help-modal').style.display = 'block';
+}
+
+// Track helpful articles in localStorage
+function getHelpfulArticles() {
+    const helpful = localStorage.getItem('helpful_articles');
+    return helpful ? JSON.parse(helpful) : [];
+}
+
+function addHelpfulArticle(helpId) {
+    const helpful = getHelpfulArticles();
+    if (!helpful.includes(helpId)) {
+        helpful.push(helpId);
+        localStorage.setItem('helpful_articles', JSON.stringify(helpful));
+    }
+}
+
+function isArticleHelpful(helpId) {
+    const helpful = getHelpfulArticles();
+    return helpful.includes(helpId);
+}
+
+// Mark article as helpful
+async function markHelpful() {
+    if (!currentArticleId) return;
+
+    // Check if already marked as helpful
+    if (isArticleHelpful(currentArticleId)) {
+        showAlert('You have already marked this article as helpful!', 'info');
+        updateHelpfulButton(true);
+        return;
+    }
+
+    const button = document.getElementById('mark-helpful-btn');
+    if (button) {
+        button.disabled = true;
+        button.innerHTML = '⏳ Submitting...';
+    }
+
+    try {
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+        
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const response = await fetch(`/api/help/${currentArticleId}/helpful`, {
+            method: 'POST',
+            headers: headers
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            showAlert('Thank you for your feedback!', 'success');
+            addHelpfulArticle(currentArticleId);
+            updateHelpfulButton(true);
+            // Reload articles to update helpful count
+            loadHelpArticles();
+        } else {
+            if (data.already_helpful) {
+                showAlert('You have already marked this article as helpful!', 'info');
+                addHelpfulArticle(currentArticleId);
+                updateHelpfulButton(true);
+            } else {
+                showAlert(data.error || 'Failed to submit feedback', 'error');
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = 'This was helpful';
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error marking helpful:', error);
+        showAlert('Error submitting feedback', 'error');
+        if (button) {
+            button.disabled = false;
+            button.innerHTML = 'This was helpful';
+        }
+    }
+}
+
+// Update helpful button state
+function updateHelpfulButton(isHelpful) {
+    const button = document.getElementById('mark-helpful-btn');
+    if (button) {
+        if (isHelpful) {
+            button.innerHTML = '✅ Marked as helpful';
+            button.disabled = true;
+            button.classList.add('helpful-marked');
+        } else {
+            button.innerHTML = 'This was helpful';
+            button.disabled = false;
+            button.classList.remove('helpful-marked');
+        }
+    }
+}
+
+// Load categories
+async function loadCategories() {
+    try {
+        const response = await fetch('/api/help/categories');
+        const data = await response.json();
+
+        if (data.success) {
+            const select = document.getElementById('category-filter');
+            select.innerHTML = '<option value="">All Categories</option>' +
+                data.data.map(category => `<option value="${category}">${category}</option>`).join('');
+        }
+    } catch (error) {
+        console.error('Error loading categories:', error);
+    }
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+    loadHelpArticles();
+    loadCategories();
+
+    // Search functionality
+    document.getElementById('search-help-btn').addEventListener('click', function() {
+        const search = document.getElementById('help-search').value.trim();
+        const category = document.getElementById('category-filter').value;
+        loadHelpArticles(category, search);
+    });
+
+    // Category filter
+    document.getElementById('category-filter').addEventListener('change', function() {
+        const category = this.value;
+        const search = document.getElementById('help-search').value.trim();
+        loadHelpArticles(category, search);
+    });
+
+    // Modal functionality
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('help-modal').style.display = 'none';
+    });
+
+    document.getElementById('modal-close-btn').addEventListener('click', function() {
+        document.getElementById('help-modal').style.display = 'none';
+    });
+
+    document.getElementById('mark-helpful-btn').addEventListener('click', markHelpful);
+    
+    // Debug functions for testing
+    window.testHelpfulValidation = function(helpId) {
+        console.log('Testing helpful validation for article:', helpId);
+        console.log('Already helpful in localStorage:', isArticleHelpful(helpId));
+        console.log('All helpful articles:', getHelpfulArticles());
+    };
+    
+    window.clearHelpfulArticles = function() {
+        localStorage.removeItem('helpful_articles');
+        console.log('Cleared all helpful articles from localStorage');
+        updateHelpfulButton(false);
+    };
+    
+    window.showHelpfulArticles = function() {
+        const helpful = getHelpfulArticles();
+        console.log('Currently helpful articles:', helpful);
+        return helpful;
+    };
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('help-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+</script>
+{% endblock %}

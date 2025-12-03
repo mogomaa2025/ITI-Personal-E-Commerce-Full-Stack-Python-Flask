@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-container">
+        <h1 id="profile-page-title">My Profile</h1>
+        
+        <!-- Profile Display Section -->
+        <div id="profile-view" class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profile-avatar">
+                    <span id="avatar-initials">U</span>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-display-name">Loading...</h2>
+                    <p id="profile-display-email" class="text-muted">Loading...</p>
+                </div>
+                <button id="btn-edit-profile" class="btn btn-primary">Edit Profile</button>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-row">
+                    <span class="detail-label">Full Name:</span>
+                    <span id="profile-display-fullname" class="detail-value">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span id="profile-display-email-detail" class="detail-value">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Phone:</span>
+                    <span id="profile-display-phone" class="detail-value">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Address:</span>
+                    <span id="profile-display-address" class="detail-value">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Account Type:</span>
+                    <span id="profile-display-role" class="detail-value badge">User</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Member Since:</span>
+                    <span id="profile-display-joined" class="detail-value">-</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profile Edit Section (Hidden by default) -->
+        <div id="profile-edit" class="profile-card" style="display: none;">
+            <div class="profile-header">
+                <h2 id="edit-profile-title">Edit Profile</h2>
+                <button id="btn-cancel-edit" class="btn btn-outline">Cancel</button>
+            </div>
+            
+            <form id="profile-edit-form" class="profile-form">
+                <input type="hidden" id="edit-user-id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" name="name" class="form-control" 
+                               placeholder="Enter your full name" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-email-display">Email</label>
+                        <input type="email" id="edit-email-display" class="form-control" 
+                               disabled readonly>
+                        <small class="form-text">Email cannot be changed</small>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-phone">Phone Number</label>
+                        <input type="tel" id="edit-phone" name="phone" class="form-control" 
+                               placeholder="Enter your phone number">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-address">Address</label>
+                        <textarea id="edit-address" name="address" class="form-control" 
+                                  rows="4" placeholder="Enter your address"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" id="btn-save-profile" class="btn btn-primary">
+                        Save Changes
+                    </button>
+                    <button type="button" id="btn-cancel-edit-bottom" class="btn btn-outline">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Account Actions -->
+        <div class="profile-actions" id="profile-actions">
+            <h3 id="account-actions-title">Account Actions</h3>
+            <div class="action-buttons">
+                <button id="btn-change-password" class="btn btn-outline">
+                    Change Password
+                </button>
+                <button id="btn-view-orders-profile" class="btn btn-outline" 
+                        onclick="window.location.href='/web/orders'">
+                    View My Orders
+                </button>
+                <button id="btn-delete-account" class="btn btn-danger">
+                    Delete Account
+                </button>
+            </div>
+        </div>
+        
+        <!-- Change Password Modal -->
+        <div id="password-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="close-password-modal">&times;</span>
+                <h2 id="password-modal-title">Change Password</h2>
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" class="form-control" 
+                               placeholder="Enter current password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" class="form-control" 
+                               placeholder="Enter new password" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" class="form-control" 
+                               placeholder="Confirm new password" required minlength="6">
+                    </div>
+                    <button type="submit" id="btn-submit-password" class="btn btn-primary">
+                        Update Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentUser = null;
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuth();
+        loadUserProfile();
+        
+        // Event listeners
+        document.getElementById('btn-edit-profile').addEventListener('click', showEditForm);
+        document.getElementById('btn-cancel-edit').addEventListener('click', hideEditForm);
+        document.getElementById('btn-cancel-edit-bottom').addEventListener('click', hideEditForm);
+        document.getElementById('profile-edit-form').addEventListener('submit', saveProfile);
+        document.getElementById('btn-change-password').addEventListener('click', showPasswordModal);
+        document.getElementById('close-password-modal').addEventListener('click', closePasswordModal);
+        document.getElementById('change-password-form').addEventListener('submit', changePassword);
+        document.getElementById('btn-delete-account').addEventListener('click', deleteAccount);
+    });
+    
+    async function loadUserProfile() {
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        if (!user.id) {
+            showAlert('User not found. Please login again.', 'error');
+            setTimeout(() => window.location.href = '/web/login', 2000);
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/users/${user.id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                currentUser = result.data;
+                displayProfile(result.data);
+            } else {
+                showAlert(result.error || 'Failed to load profile', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+    
+    function displayProfile(user) {
+        // Display mode
+        document.getElementById('profile-display-name').textContent = user.name || 'No name set';
+        document.getElementById('profile-display-email').textContent = user.email;
+        document.getElementById('profile-display-fullname').textContent = user.name || '-';
+        document.getElementById('profile-display-email-detail').textContent = user.email;
+        document.getElementById('profile-display-phone').textContent = user.phone || '-';
+        document.getElementById('profile-display-address').textContent = user.address || '-';
+        document.getElementById('profile-display-role').textContent = user.is_admin ? 'Admin' : 'User';
+        
+        if (user.created_at) {
+            const joinDate = new Date(user.created_at);
+            document.getElementById('profile-display-joined').textContent = 
+                joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+        
+        // Avatar initials
+        if (user.name) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            document.getElementById('avatar-initials').textContent = initials;
+        }
+        
+        // Edit mode
+        document.getElementById('edit-user-id').value = user.id;
+        document.getElementById('edit-name').value = user.name || '';
+        document.getElementById('edit-email-display').value = user.email;
+        document.getElementById('edit-phone').value = user.phone || '';
+        document.getElementById('edit-address').value = user.address || '';
+    }
+    
+    function showEditForm() {
+        document.getElementById('profile-view').style.display = 'none';
+        document.getElementById('profile-edit').style.display = 'block';
+        document.getElementById('profile-actions').style.display = 'none';
+    }
+    
+    function hideEditForm() {
+        document.getElementById('profile-view').style.display = 'block';
+        document.getElementById('profile-edit').style.display = 'none';
+        document.getElementById('profile-actions').style.display = 'block';
+    }
+    
+    async function saveProfile(e) {
+        e.preventDefault();
+        
+        const token = localStorage.getItem('token');
+        const userId = document.getElementById('edit-user-id').value;
+        
+        const profileData = {
+            name: document.getElementById('edit-name').value,
+            phone: document.getElementById('edit-phone').value,
+            address: document.getElementById('edit-address').value
+        };
+        
+        try {
+            const response = await fetch(`/api/users/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(profileData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Profile updated successfully!', 'success');
+                currentUser = result.data;
+                
+                // Update local storage
+                const user = JSON.parse(localStorage.getItem('user') || '{}');
+                user.name = result.data.name;
+                localStorage.setItem('user', JSON.stringify(user));
+                
+                displayProfile(result.data);
+                hideEditForm();
+            } else {
+                showAlert(result.error || 'Failed to update profile', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+    
+    function showPasswordModal() {
+        document.getElementById('password-modal').style.display = 'block';
+    }
+    
+    function closePasswordModal() {
+        document.getElementById('password-modal').style.display = 'none';
+        document.getElementById('change-password-form').reset();
+    }
+    
+    async function changePassword(e) {
+        e.preventDefault();
+        
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        
+        if (newPassword !== confirmPassword) {
+            showAlert('New passwords do not match', 'error');
+            return;
+        }
+        
+        if (newPassword.length < 6) {
+            showAlert('Password must be at least 6 characters', 'error');
+            return;
+        }
+        
+        // Note: You would need to add a change password endpoint to your API
+        showAlert('Password change feature would be implemented here', 'info');
+        closePasswordModal();
+    }
+    
+    async function deleteAccount() {
+        const confirmation = prompt('This action cannot be undone. Type "DELETE" to confirm:');
+        
+        if (confirmation !== 'DELETE') {
+            return;
+        }
+        
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        try {
+            const response = await fetch(`/api/users/${user.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Account deleted successfully', 'success');
+                localStorage.clear();
+                setTimeout(() => window.location.href = '/', 2000);
+            } else {
+                showAlert(result.error || 'Failed to delete account', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+</script>
+{% endblock %}

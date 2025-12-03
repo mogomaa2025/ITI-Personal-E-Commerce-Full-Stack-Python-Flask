@@ -1,0 +1,612 @@
+[
+    {
+        "id": 1,
+        "user_id": 2,
+        "type": "order_update",
+        "title": "Order Status Update",
+        "message": "Your order #12345 has been shipped and is on its way!",
+        "is_read": true,
+        "created_at": "2025-10-14T00:22:36.660997",
+        "read_at": "2025-10-14T03:56:47.791172"
+    },
+    {
+        "id": 2,
+        "user_id": 2,
+        "type": "promotion",
+        "title": "Special Offer",
+        "message": "Get 20% off on all electronics this weekend!",
+        "is_read": true,
+        "created_at": "2025-10-13T00:22:36.660997",
+        "read_at": "2025-10-17T19:05:36.448546"
+    },
+    {
+        "id": 3,
+        "user_id": 3,
+        "type": "stock_alert",
+        "title": "Back in Stock",
+        "message": "The Laptop Pro 15\" is back in stock!",
+        "is_read": false,
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 4,
+        "user_id": 40,
+        "type": "welcome",
+        "title": "Welcome to Our Store!",
+        "message": "Thank you for joining us. Enjoy shopping!",
+        "is_read": true,
+        "created_at": "2025-11-13T10:00:00.000000",
+        "read_at": "2025-11-13T21:21:34.774032"
+    },
+    {
+        "id": 5,
+        "user_id": 40,
+        "type": "order_update",
+        "title": "Order Confirmed",
+        "message": "Your order has been confirmed and is being processed.",
+        "is_read": true,
+        "created_at": "2025-11-13T11:00:00.000000",
+        "read_at": "2025-11-13T21:21:34.774032"
+    },
+    {
+        "id": 6,
+        "user_id": 40,
+        "type": "promotion",
+        "title": "Flash Sale Alert",
+        "message": "Don't miss our flash sale! Up to 50% off selected items.",
+        "is_read": true,
+        "created_at": "2025-11-12T15:00:00.000000",
+        "read_at": "2025-11-17T04:24:13.193041"
+    },
+    {
+        "id": 7,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 8,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 9,
+        "user_id": 165,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 10,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 11,
+        "user_id": 165,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 12,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 13,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 14,
+        "user_id": 165,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 15,
+        "user_id": 165,
+        "title": "Shipping Notice",
+        "body": "Shipping Notice: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.626360",
+        "read_at": "2025-11-17T04:35:21.468737"
+    },
+    {
+        "id": 16,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:32:34.626360",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627354",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 17,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.627354",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627354",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 18,
+        "user_id": 165,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T04:32:34.627354",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627354",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 19,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.627354",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 20,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 21,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 22,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 23,
+        "user_id": 165,
+        "title": "Shipping Notice",
+        "body": "Shipping Notice: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 24,
+        "user_id": 165,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.515439"
+    },
+    {
+        "id": 25,
+        "user_id": 165,
+        "title": "Shipping Notice",
+        "body": "Shipping Notice: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.516703"
+    },
+    {
+        "id": 26,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:32:34.627416",
+        "is_read": true,
+        "created_at": "2025-11-17T04:32:34.627416",
+        "read_at": "2025-11-17T04:35:02.516703"
+    },
+    {
+        "id": 27,
+        "user_id": 165,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:34:10.595780",
+        "is_read": true,
+        "created_at": "2025-11-17T04:34:10.595780",
+        "read_at": "2025-11-17T04:35:02.516703"
+    },
+    {
+        "id": 28,
+        "user_id": 165,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:34:10.595780",
+        "is_read": true,
+        "created_at": "2025-11-17T04:34:10.595780",
+        "read_at": "2025-11-17T04:35:02.516703"
+    },
+    {
+        "id": 29,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:34:10.595780",
+        "is_read": true,
+        "created_at": "2025-11-17T04:34:10.595780",
+        "read_at": "2025-11-17T04:35:02.516703"
+    },
+    {
+        "id": 30,
+        "user_id": 165,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:37:57.578131",
+        "is_read": false,
+        "created_at": "2025-11-17T04:37:57.578131"
+    },
+    {
+        "id": 31,
+        "user_id": 165,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T04:37:57.578131",
+        "is_read": false,
+        "created_at": "2025-11-17T04:37:57.578131"
+    },
+    {
+        "id": 32,
+        "user_id": 165,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:37:57.578131",
+        "is_read": true,
+        "created_at": "2025-11-17T04:37:57.578131",
+        "read_at": "2025-11-17T04:41:25.051597"
+    },
+    {
+        "id": 33,
+        "user_id": 165,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:49:36.656257",
+        "is_read": false,
+        "created_at": "2025-11-17T04:49:36.656257"
+    },
+    {
+        "id": 34,
+        "user_id": 165,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:49:36.656257",
+        "is_read": false,
+        "created_at": "2025-11-17T04:49:36.656257"
+    },
+    {
+        "id": 35,
+        "user_id": 165,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:49:36.656257",
+        "is_read": false,
+        "created_at": "2025-11-17T04:49:36.656257"
+    },
+    {
+        "id": 36,
+        "user_id": 165,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T04:52:53.372288",
+        "is_read": false,
+        "created_at": "2025-11-17T04:52:53.372288"
+    },
+    {
+        "id": 37,
+        "user_id": 165,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T04:52:53.372288",
+        "is_read": false,
+        "created_at": "2025-11-17T04:52:53.372288"
+    },
+    {
+        "id": 38,
+        "user_id": 165,
+        "title": "Price Drop",
+        "body": "Price Drop: This is a test notification at 2025-11-17T04:52:53.372288",
+        "is_read": true,
+        "created_at": "2025-11-17T04:52:53.372288",
+        "read_at": "2025-11-17T04:52:59.557521"
+    },
+    {
+        "id": 39,
+        "user_id": 163,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 40,
+        "user_id": 163,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 41,
+        "user_id": 163,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 42,
+        "user_id": 163,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 43,
+        "user_id": 163,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 44,
+        "user_id": 163,
+        "title": "Price Drop",
+        "body": "Price Drop: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 45,
+        "user_id": 163,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 46,
+        "user_id": 163,
+        "title": "Price Drop",
+        "body": "Price Drop: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 47,
+        "user_id": 163,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 48,
+        "user_id": 163,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T04:59:22.231763",
+        "is_read": true,
+        "created_at": "2025-11-17T04:59:22.231763",
+        "read_at": "2025-11-17T08:27:03.802085"
+    },
+    {
+        "id": 49,
+        "user_id": 163,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 50,
+        "user_id": 163,
+        "title": "Shipping Notice",
+        "body": "Shipping Notice: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 51,
+        "user_id": 163,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 52,
+        "user_id": 163,
+        "title": "Flash Sale",
+        "body": "Flash Sale: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 53,
+        "user_id": 163,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 54,
+        "user_id": 163,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 55,
+        "user_id": 163,
+        "title": "Shipping Notice",
+        "body": "Shipping Notice: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 56,
+        "user_id": 163,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 57,
+        "user_id": 163,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 58,
+        "user_id": 163,
+        "title": "Price Drop",
+        "body": "Price Drop: This is a test notification at 2025-11-17T05:00:42.636582",
+        "is_read": true,
+        "created_at": "2025-11-17T05:00:42.636582",
+        "read_at": "2025-11-17T08:27:59.284396"
+    },
+    {
+        "id": 59,
+        "user_id": 166,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 60,
+        "user_id": 166,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 61,
+        "user_id": 166,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 62,
+        "user_id": 166,
+        "title": "New Message",
+        "body": "New Message: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 63,
+        "user_id": 166,
+        "title": "Price Drop",
+        "body": "Price Drop: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 64,
+        "user_id": 166,
+        "title": "Reminder",
+        "body": "Reminder: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 65,
+        "user_id": 166,
+        "title": "Recommendation",
+        "body": "Recommendation: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 66,
+        "user_id": 166,
+        "title": "System Alert",
+        "body": "System Alert: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 67,
+        "user_id": 166,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.747157"
+    },
+    {
+        "id": 68,
+        "user_id": 166,
+        "title": "Order Update",
+        "body": "Order Update: This is a test notification at 2025-11-17T08:33:46.044111",
+        "is_read": true,
+        "created_at": "2025-11-17T08:33:46.044111",
+        "read_at": "2025-11-17T08:33:46.575721"
+    }
+]

@@ -1,0 +1,399 @@
+[
+    {
+        "id": 1,
+        "category": "General",
+        "question": "How do I create an account?",
+        "answer": "Click on the 'Register' button in the top navigation, fill in your details, and verify your email address.",
+        "helpful_count": 49,
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 2,
+        "category": "Orders",
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "helpful_count": 43,
+        "created_at": "2025-10-14T00:22:36.660997",
+        "updated_at": "2025-10-14T03:56:47.073230"
+    },
+    {
+        "id": 3,
+        "category": "Shipping",
+        "question": "What are the shipping options?",
+        "answer": "We offer standard shipping (3-5 days) and express shipping (1-2 days). Free shipping on orders over $50.",
+        "helpful_count": 81,
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 4,
+        "category": "Payment",
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, PayPal, and bank transfers.",
+        "helpful_count": 41,
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 5,
+        "category": "Returns",
+        "question": "What is your return policy?",
+        "answer": "You can return items within 30 days of purchase. Items must be in original condition.",
+        "helpful_count": 31,
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 6,
+        "category": "Orders",
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "helpful_count": 39,
+        "created_at": "2025-10-14T00:22:36.660997",
+        "updated_at": "2025-10-14T21:50:07.112481"
+    },
+    {
+        "id": 7,
+        "category": "Orders",
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "helpful_count": 20,
+        "created_at": "2025-10-14T00:22:36.660997",
+        "updated_at": "2025-10-14T20:58:31.146277"
+    },
+    {
+        "id": 8,
+        "category": "Orders",
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "helpful_count": 28,
+        "created_at": "2025-10-14T00:22:36.660997",
+        "updated_at": "2025-10-14T21:15:31.353619"
+    },
+    {
+        "id": 9,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T03:08:09.851152"
+    },
+    {
+        "id": 10,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T03:46:39.405841"
+    },
+    {
+        "id": 11,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T03:56:46.995079"
+    },
+    {
+        "id": 12,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T20:36:34.245284"
+    },
+    {
+        "id": 13,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T20:55:13.676483"
+    },
+    {
+        "id": 14,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T20:58:31.053176"
+    },
+    {
+        "id": 15,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-14T21:15:31.306599"
+    },
+    {
+        "id": 16,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-14T21:47:21.718318"
+    },
+    {
+        "id": 17,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-14T21:48:22.737038"
+    },
+    {
+        "id": 18,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 2,
+        "created_at": "2025-10-14T21:50:06.891139",
+        "updated_at": "2025-10-19T23:08:38.203571"
+    },
+    {
+        "id": 19,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T04:49:25.371802"
+    },
+    {
+        "id": 20,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 4,
+        "created_at": "2025-10-17T04:49:57.940111",
+        "updated_at": "2025-10-17T05:06:02.355380"
+    },
+    {
+        "id": 21,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T05:22:01.326865",
+        "updated_at": "2025-10-17T06:42:41.532283"
+    },
+    {
+        "id": 22,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T14:27:29.517099",
+        "updated_at": "2025-10-17T14:27:32.189947"
+    },
+    {
+        "id": 23,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T15:50:29.857323",
+        "updated_at": "2025-10-17T15:50:33.053155"
+    },
+    {
+        "id": 24,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T15:52:24.481469",
+        "updated_at": "2025-10-17T15:52:27.028456"
+    },
+    {
+        "id": 25,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T18:52:09.971867",
+        "updated_at": "2025-10-17T18:52:12.541023"
+    },
+    {
+        "id": 26,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T18:58:36.060537",
+        "updated_at": "2025-10-17T18:58:38.443664"
+    },
+    {
+        "id": 27,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T19:01:14.767184",
+        "updated_at": "2025-10-17T19:01:17.288707"
+    },
+    {
+        "id": 28,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-17T19:05:28.211914",
+        "updated_at": "2025-10-17T19:05:31.792605"
+    },
+    {
+        "id": 29,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-19T23:01:29.458821"
+    },
+    {
+        "id": 30,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-19T23:05:18.279110"
+    },
+    {
+        "id": 31,
+        "question": "How to track my order?",
+        "answer": "Use the orders page to check status.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-10-19T23:06:57.018963"
+    },
+    {
+        "id": 32,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-10-19T23:07:02.070830",
+        "updated_at": "2025-10-19T23:16:18.083614"
+    },
+    {
+        "id": 33,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-10-19T23:12:17.499126"
+    },
+    {
+        "id": 34,
+        "question": "Test question",
+        "answer": "Test answer",
+        "category": "Test",
+        "helpful_count": 0,
+        "created_at": "2025-10-19T23:12:36.328334"
+    },
+    {
+        "id": 35,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-11-13T19:21:08.641411"
+    },
+    {
+        "id": 36,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-11-13T19:23:14.695747"
+    },
+    {
+        "id": 37,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 1,
+        "created_at": "2025-11-13T19:23:37.807678"
+    },
+    {
+        "id": 38,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 1,
+        "created_at": "2025-11-13T19:42:01.484985"
+    },
+    {
+        "id": 39,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-11-13T19:45:30.430174",
+        "updated_at": "2025-11-13T19:52:59.843068"
+    },
+    {
+        "id": 40,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-11-13T21:49:21.495479",
+        "updated_at": "2025-11-13T21:49:21.961936"
+    },
+    {
+        "id": 41,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-11-13T21:59:18.882338",
+        "updated_at": "2025-11-13T21:59:19.303245"
+    },
+    {
+        "id": 42,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-11-17T00:58:42.107916"
+    },
+    {
+        "id": 43,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 0,
+        "created_at": "2025-11-17T00:59:03.840793",
+        "updated_at": "2025-11-17T01:00:33.283238"
+    },
+    {
+        "id": 44,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-11-17T01:29:26.520338"
+    },
+    {
+        "id": 45,
+        "question": "How to track my order2?",
+        "answer": "Use the orders page to check status2.",
+        "category": "Orders2",
+        "helpful_count": 0,
+        "created_at": "2025-11-17T01:30:12.977454"
+    },
+    {
+        "id": 46,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-11-17T01:31:57.683628",
+        "updated_at": "2025-11-17T01:54:11.493135"
+    },
+    {
+        "id": 47,
+        "question": "How to track my order?",
+        "answer": "Visit the orders page and use the tracking link.",
+        "category": "Orders",
+        "helpful_count": 1,
+        "created_at": "2025-11-17T02:01:36.479915",
+        "updated_at": "2025-11-17T02:01:36.781974"
+    }
+]

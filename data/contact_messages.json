@@ -1,0 +1,269 @@
+[
+    {
+        "id": 1,
+        "name": "John Smith",
+        "email": "john.smith@email.com",
+        "subject": "Product Inquiry",
+        "message": "I'm interested in your electronics products. Do you have any discounts available?",
+        "status": "pending",
+        "created_at": "2025-10-14T00:22:36.660997"
+    },
+    {
+        "id": 2,
+        "name": "Sarah Johnson",
+        "email": "sarah.j@email.com",
+        "subject": "Shipping Issue",
+        "message": "My order was supposed to arrive yesterday but I haven't received it yet. Can you help?",
+        "status": "resolved",
+        "response": "We apologize for the delay. Your order has been shipped and should arrive within 2 business days.",
+        "resolved_at": "2025-10-14T00:22:36.660997",
+        "created_at": "2025-10-12T00:22:36.660997"
+    },
+    {
+        "id": 3,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T03:10:14.946065",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T03:12:28.003330"
+    },
+    {
+        "id": 4,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T03:46:39.514292",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T03:46:39.626699"
+    },
+    {
+        "id": 5,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T03:56:47.147460",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T03:56:47.323240"
+    },
+    {
+        "id": 6,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T20:36:34.497421",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T20:36:34.730096"
+    },
+    {
+        "id": 7,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T20:58:31.211830",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T20:58:31.382034"
+    },
+    {
+        "id": 8,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T21:15:31.430641",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T21:15:31.572651"
+    },
+    {
+        "id": 9,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T21:47:21.784173",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T21:47:21.858842"
+    },
+    {
+        "id": 10,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-14T21:50:07.156903",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-14T21:50:07.297521"
+    },
+    {
+        "id": 11,
+        "name": "tt",
+        "email": "010288@gmail.com",
+        "subject": "General Inquiry",
+        "message": "dfwef",
+        "status": "pending",
+        "created_at": "2025-10-14T21:19:49.808408"
+    },
+    {
+        "id": 12,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-17T06:44:59.976432",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-17T06:51:10.807204"
+    },
+    {
+        "id": 13,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-17T06:57:31.513744",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-17T08:15:57.602654"
+    },
+    {
+        "id": 14,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-17T14:27:25.250211",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-17T14:27:27.293172"
+    },
+    {
+        "id": 15,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-17T15:50:25.956895",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-17T15:50:27.030518"
+    },
+    {
+        "id": 16,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-17T15:52:20.999443",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-17T15:52:22.265912"
+    },
+    {
+        "id": 17,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-10-19T22:59:01.821330",
+        "response": "Thanks for reaching out. Your issue is resolved.",
+        "resolved_at": "2025-10-19T23:00:41.979388"
+    },
+    {
+        "id": 18,
+        "name": "Mo Gomaa",
+        "email": "iti@example.com",
+        "subject": "Order issue Test",
+        "message": "I need help with my order Test.",
+        "status": "pending",
+        "created_at": "2025-11-13T19:54:06.861972"
+    },
+    {
+        "id": 19,
+        "name": "Mo Gomaa",
+        "email": "iti@example.com",
+        "subject": "Order issue Test",
+        "message": "I need help with my order Test.",
+        "status": "pending",
+        "created_at": "2025-11-13T19:54:37.069385"
+    },
+    {
+        "id": 20,
+        "name": "Mo Gomaa",
+        "email": "iti@example.com",
+        "subject": "Order issue Test",
+        "message": "I need help with my order Test.",
+        "status": "resolved",
+        "created_at": "2025-11-13T19:55:20.180750",
+        "response": "Thanks for reaching out Test. Your issue is resolved.",
+        "resolved_at": "2025-11-13T20:06:09.264771"
+    },
+    {
+        "id": 21,
+        "name": "Mo Gomaa",
+        "email": "iti@example.com",
+        "subject": "Order issue Test",
+        "message": "I need help with my order Test.",
+        "status": "resolved",
+        "created_at": "2025-11-13T21:49:22.056435",
+        "response": "Thanks for reaching out Test. Your issue is resolved.",
+        "resolved_at": "2025-11-13T21:49:22.243882"
+    },
+    {
+        "id": 22,
+        "name": "Mo Gomaa",
+        "email": "iti@example.com",
+        "subject": "Order issue Test",
+        "message": "I need help with my order Test.",
+        "status": "resolved",
+        "created_at": "2025-11-13T21:59:19.398297",
+        "response": "Thanks for reaching out Test. Your issue is resolved.",
+        "resolved_at": "2025-11-13T21:59:19.538898"
+    },
+    {
+        "id": 23,
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "subject": "Order issue",
+        "message": "I need help with my order.",
+        "status": "resolved",
+        "created_at": "2025-11-16T03:24:07.632893",
+        "response": "Thanks for reaching out Test. Your issue is resolved.",
+        "resolved_at": "2025-11-17T02:09:09.103870"
+    },
+    {
+        "id": 24,
+        "name": "Test User",
+        "email": "test@example.com",
+        "subject": "Test Subject",
+        "message": "Test message content",
+        "status": "resolved",
+        "created_at": "2025-11-17T02:29:43.512074",
+        "response": "Thank you for contacting us. We will help you...",
+        "resolved_at": "2025-11-17T02:36:45.381531"
+    },
+    {
+        "id": 25,
+        "name": "Test User",
+        "email": "test@example.com",
+        "subject": "Test Subject",
+        "message": "Test message content",
+        "status": "resolved",
+        "created_at": "2025-11-17T02:39:36.893621",
+        "response": "Thank you for contacting us. We will help you...",
+        "resolved_at": "2025-11-17T02:39:37.260857"
+    }
+]

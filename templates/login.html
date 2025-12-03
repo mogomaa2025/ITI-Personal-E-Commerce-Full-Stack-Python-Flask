@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Login - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="auth-container">
+        <div class="auth-card" id="login-card">
+            <h2 id="login-title">Login to Your Account</h2>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" class="form-control"
+                        placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" class="form-control"
+                        placeholder="Enter your password" required>
+                </div>
+                <button type="submit" id="btn-login-submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </form>
+            <p class="auth-footer">
+                Don't have an account?
+                <a href="/web/register" id="link-register">Register here</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if already logged in
+    if (localStorage.getItem('token')) {
+        window.location.href = '/';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                localStorage.setItem('token', result.token);
+                localStorage.setItem('user', JSON.stringify(result.user));
+                showAlert('Login successful!', 'success');
+                setTimeout(() => {
+                    window.location.href = '/web/products';
+                }, 1000);
+            } else {
+                showAlert(result.error || 'Login failed', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error. Please try again.', 'error');
+        }
+    });
+</script>
+{% endblock %}

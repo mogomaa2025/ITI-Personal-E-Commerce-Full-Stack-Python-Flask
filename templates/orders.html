@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}My Orders - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 id="orders-title">My Orders</h1>
+    
+    <div class="order-filters">
+        <button onclick="filterOrders('all')" id="filter-all" class="btn btn-outline active">All</button>
+        <button onclick="filterOrders('pending')" id="filter-pending" class="btn btn-outline">Pending</button>
+        <button onclick="filterOrders('processing')" id="filter-processing" class="btn btn-outline">Processing</button>
+        <button onclick="filterOrders('shipped')" id="filter-shipped" class="btn btn-outline">Shipped</button>
+        <button onclick="filterOrders('delivered')" id="filter-delivered" class="btn btn-outline">Delivered</button>
+    </div>
+    
+    <div id="orders-list" class="orders-list">
+        <!-- Orders will be loaded here -->
+    </div>
+</div>
+
+<script>
+    let currentFilter = 'all';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuth();
+        loadOrders();
+        
+        // Add event delegation for cancel buttons
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id && e.target.id.startsWith('btn-cancel-order-')) {
+                const orderId = e.target.id.replace('btn-cancel-order-', '');
+                console.log('Cancel button clicked via event delegation for order:', orderId);
+                cancelOrder(parseInt(orderId));
+            }
+        });
+    });
+
+    async function loadOrders() {
+        const token = localStorage.getItem('token');
+        let url = '/api/orders';
+        
+        if (currentFilter !== 'all') {
+            url = `/api/orders/status/${currentFilter}`;
+        }
+        
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                displayOrders(result.data);
+            }
+        } catch (error) {
+            showAlert('Error loading orders', 'error');
+        }
+    }
+
+    function displayOrders(orders) {
+        const container = document.getElementById('orders-list');
+        
+        if (orders.length === 0) {
+            container.innerHTML = '<p class="no-orders" id="no-orders">No orders found</p>';
+            return;
+        }
+        
+        container.innerHTML = orders.map(order => `
+            <div class="order-card" id="order-${order.id}">
+                <div class="order-header">
+                    <h3 id="order-id-${order.id}">Order #${order.id}</h3>
+                    <span class="order-status status-${order.status}" id="order-status-${order.id}">
+                        ${order.status}
+                    </span>
+                </div>
+                <div class="order-details">
+                    <p><strong>Date:</strong> <span id="order-date-${order.id}">
+                        ${new Date(order.created_at).toLocaleString()}
+                    </span></p>
+                    <p><strong>Total:</strong> <span id="order-total-${order.id}">
+                        $${order.total_amount.toFixed(2)}
+                    </span></p>
+                    <p><strong>Items:</strong> <span id="order-items-count-${order.id}">
+                        ${order.items.length}
+                    </span></p>
+                </div>
+                <div class="order-items">
+                    ${order.items.map((item, idx) => `
+                        <div class="order-item" id="order-${order.id}-item-${idx}">
+                            <span>${item.product_name}</span>
+                            <span>Qty: ${item.quantity}</span>
+                            <span>$${item.subtotal.toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                ${order.status === 'pending' || order.status === 'processing' ? `
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee;">
+                        <button class="btn btn-outline btn-small" 
+                                id="btn-cancel-order-${order.id}" 
+                                style="cursor: pointer; z-index: 10; position: relative; pointer-events: auto;">
+                            Cancel Order
+                        </button>
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
+    }
+
+    function filterOrders(status) {
+        currentFilter = status;
+        
+        // Update active button
+        document.querySelectorAll('.order-filters button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(`filter-${status}`).classList.add('active');
+        
+        loadOrders();
+    }
+
+    async function cancelOrder(orderId) {
+        console.log('Cancel order clicked for order ID:', orderId);
+        
+        if (!confirm('Are you sure you want to cancel this order?')) return;
+        
+        const token = localStorage.getItem('token');
+        console.log('Token exists:', !!token);
+        
+        try {
+            console.log('Making DELETE request to:', `/api/orders/${orderId}`);
+            const response = await fetch(`/api/orders/${orderId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            console.log('Response status:', response.status);
+            const result = await response.json();
+            console.log('Response data:', result);
+            
+            if (result.success) {
+                showAlert('Order cancelled', 'success');
+                loadOrders();
+            } else {
+                showAlert(result.error || 'Failed to cancel order', 'error');
+            }
+        } catch (error) {
+            console.error('Error cancelling order:', error);
+            showAlert('Network error', 'error');
+        }
+    }
+</script>
+{% endblock %}

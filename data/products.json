@@ -1,0 +1,1099 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop Pro 15\"",
+        "description": "High-performance laptop with 16GB RAM and 512GB SSD2",
+        "price": 899.99,
+        "category": "Electronics",
+        "stock": 191,
+        "image_url": "https://picsum.photos/400/300?random=1",
+        "created_at": "2025-09-15T00:17:15.200501",
+        "updated_at": "2025-11-30T11:56:24.238646"
+    },
+    {
+        "id": 2,
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with precision tracking",
+        "price": 24.99,
+        "category": "Electronics",
+        "stock": 191,
+        "image_url": "https://picsum.photos/400/300?random=2",
+        "created_at": "2025-07-12T00:17:15.200501",
+        "updated_at": "2025-11-16T04:36:14.907522"
+    },
+    {
+        "id": 3,
+        "name": "Mechanical Keyboard",
+        "description": "RGB mechanical keyboard with Cherry MX switches",
+        "price": 149.99,
+        "category": "Electronics",
+        "stock": 38,
+        "image_url": "https://picsum.photos/400/300?random=3",
+        "created_at": "2025-08-11T00:17:15.200501"
+    },
+    {
+        "id": 4,
+        "name": "4K Monitor 27\"",
+        "description": "Updated description",
+        "price": 24.98,
+        "category": "Electronics",
+        "stock": 25,
+        "image_url": "https://picsum.photos/400/300?random=4",
+        "created_at": "2025-09-28T00:17:15.200501",
+        "updated_at": "2025-11-16T04:36:14.718297"
+    },
+    {
+        "id": 5,
+        "name": "USB-C Hub",
+        "description": "7-in-1 USB-C hub with HDMI and ethernet",
+        "price": 59.99,
+        "category": "Electronics",
+        "stock": 129,
+        "image_url": "https://picsum.photos/400/300?random=5",
+        "created_at": "2025-08-22T00:17:15.200501"
+    },
+    {
+        "id": 6,
+        "name": "Webcam HD",
+        "description": "1080p HD webcam with auto-focus",
+        "price": 79.99,
+        "category": "Electronics",
+        "stock": 67,
+        "image_url": "https://picsum.photos/400/300?random=6",
+        "created_at": "2025-06-19T00:17:15.200501"
+    },
+    {
+        "id": 7,
+        "name": "Bluetooth Speaker",
+        "description": "Portable waterproof Bluetooth speaker",
+        "price": 89.99,
+        "category": "Electronics",
+        "stock": 70,
+        "image_url": "https://picsum.photos/400/300?random=7",
+        "created_at": "2025-05-06T00:17:15.200501"
+    },
+    {
+        "id": 8,
+        "name": "Wireless Earbuds",
+        "description": "True wireless earbuds with active noise cancellation",
+        "price": 199.99,
+        "category": "Electronics",
+        "stock": 27,
+        "image_url": "https://picsum.photos/400/300?random=8",
+        "created_at": "2025-05-25T00:17:15.200501"
+    },
+    {
+        "id": 9,
+        "name": "Gaming Headset",
+        "description": "Pro gaming headset with 7.1 surround sound",
+        "price": 129.99,
+        "category": "Electronics",
+        "stock": 138,
+        "image_url": "https://picsum.photos/400/300?random=9",
+        "created_at": "2025-07-17T00:17:15.200501"
+    },
+    {
+        "id": 10,
+        "name": "Portable SSD 1TB",
+        "description": "External solid state drive 1TB",
+        "price": 149.99,
+        "category": "Electronics",
+        "stock": 43,
+        "image_url": "https://picsum.photos/400/300?random=10",
+        "created_at": "2025-06-25T00:17:15.200501"
+    },
+    {
+        "id": 11,
+        "name": "Smart Watch",
+        "description": "Fitness tracker smart watch with heart rate monitor",
+        "price": 249.99,
+        "category": "Electronics",
+        "stock": 178,
+        "image_url": "https://picsum.photos/400/300?random=11",
+        "created_at": "2025-06-28T00:17:15.200501"
+    },
+    {
+        "id": 12,
+        "name": "Tablet 10\"",
+        "description": "Android tablet with 64GB storage",
+        "price": 299.99,
+        "category": "Electronics",
+        "stock": 169,
+        "image_url": "https://picsum.photos/400/300?random=12",
+        "created_at": "2025-09-24T00:17:15.200501"
+    },
+    {
+        "id": 13,
+        "name": "Power Bank 20000mAh",
+        "description": "Fast charging power bank",
+        "price": 39.99,
+        "category": "Electronics",
+        "stock": 91,
+        "image_url": "https://picsum.photos/400/300?random=13",
+        "created_at": "2025-09-14T00:17:15.200501"
+    },
+    {
+        "id": 14,
+        "name": "HDMI Cable 10ft",
+        "description": "Premium 4K HDMI cable",
+        "price": 19.99,
+        "category": "Electronics",
+        "stock": 200,
+        "image_url": "https://picsum.photos/400/300?random=14",
+        "created_at": "2025-08-08T00:17:15.200501"
+    },
+    {
+        "id": 15,
+        "name": "Laptop Stand",
+        "description": "Adjustable aluminum laptop stand",
+        "price": 49.99,
+        "category": "Electronics",
+        "stock": 21,
+        "image_url": "https://picsum.photos/400/300?random=15",
+        "created_at": "2025-09-30T00:17:15.200501"
+    },
+    {
+        "id": 16,
+        "name": "Classic T-Shirt",
+        "description": "Comfortable cotton t-shirt",
+        "price": 19.99,
+        "category": "Clothing",
+        "stock": 66,
+        "image_url": "https://placeholder.pics/svg/400x300/3498db-FFFFFF/3498db-FFFFFF/Product",
+        "created_at": "2025-07-18T00:17:15.200501"
+    },
+    {
+        "id": 17,
+        "name": "Denim Jeans",
+        "description": "Slim fit denim jeans",
+        "price": 59.99,
+        "category": "Clothing",
+        "stock": 169,
+        "image_url": "https://placeholder.pics/svg/400x300/2ecc71-FFFFFF/2ecc71-FFFFFF/Product",
+        "created_at": "2025-05-30T00:17:15.200501"
+    },
+    {
+        "id": 18,
+        "name": "Leather Jacket",
+        "description": "Genuine leather jacket",
+        "price": 199.99,
+        "category": "Clothing",
+        "stock": 95,
+        "image_url": "https://placeholder.pics/svg/400x300/e74c3c-FFFFFF/e74c3c-FFFFFF/Product",
+        "created_at": "2025-10-08T00:17:15.200501"
+    },
+    {
+        "id": 19,
+        "name": "Running Shoes",
+        "description": "Lightweight running shoes",
+        "price": 89.99,
+        "category": "Clothing",
+        "stock": 71,
+        "image_url": "https://placeholder.pics/svg/400x300/9b59b6-FFFFFF/9b59b6-FFFFFF/Product",
+        "created_at": "2025-06-11T00:17:15.200501"
+    },
+    {
+        "id": 20,
+        "name": "Hoodie",
+        "description": "Warm fleece hoodie",
+        "price": 49.99,
+        "category": "Clothing",
+        "stock": 16,
+        "image_url": "https://placeholder.pics/svg/400x300/f39c12-FFFFFF/f39c12-FFFFFF/Product",
+        "created_at": "2025-09-16T00:17:15.200501"
+    },
+    {
+        "id": 21,
+        "name": "Polo Shirt",
+        "description": "Classic polo shirt",
+        "price": 34.99,
+        "category": "Clothing",
+        "stock": 197,
+        "image_url": "https://placeholder.pics/svg/400x300/1abc9c-FFFFFF/1abc9c-FFFFFF/Product",
+        "created_at": "2025-05-31T00:17:15.200501"
+    },
+    {
+        "id": 22,
+        "name": "Cargo Pants",
+        "description": "Multi-pocket cargo pants",
+        "price": 54.99,
+        "category": "Clothing",
+        "stock": 192,
+        "image_url": "https://placeholder.pics/svg/400x300/34495e-FFFFFF/34495e-FFFFFF/Product",
+        "created_at": "2025-10-04T00:17:15.200501"
+    },
+    {
+        "id": 23,
+        "name": "Winter Coat",
+        "description": "Insulated winter coat",
+        "price": 149.99,
+        "category": "Clothing",
+        "stock": 79,
+        "image_url": "https://placeholder.pics/svg/400x300/16a085-FFFFFF/16a085-FFFFFF/Product",
+        "created_at": "2025-09-18T00:17:15.200501"
+    },
+    {
+        "id": 24,
+        "name": "Baseball Cap",
+        "description": "Adjustable baseball cap",
+        "price": 24.99,
+        "category": "Clothing",
+        "stock": 39,
+        "image_url": "https://placeholder.pics/svg/400x300/c0392b-FFFFFF/c0392b-FFFFFF/Product",
+        "created_at": "2025-07-31T00:17:15.200501"
+    },
+    {
+        "id": 25,
+        "name": "Sneakers",
+        "description": "Casual canvas sneakers",
+        "price": 64.99,
+        "category": "Clothing",
+        "stock": 187,
+        "image_url": "https://placeholder.pics/svg/400x300/2c3e50-FFFFFF/2c3e50-FFFFFF/Product",
+        "created_at": "2025-09-22T00:17:15.200501"
+    },
+    {
+        "id": 26,
+        "name": "Dress Shirt",
+        "description": "Formal dress shirt",
+        "price": 44.99,
+        "category": "Clothing",
+        "stock": 44,
+        "image_url": "https://dummyimage.com/400x300/3498db/ffffff&text=Product",
+        "created_at": "2025-06-14T00:17:15.200501"
+    },
+    {
+        "id": 27,
+        "name": "Chino Pants",
+        "description": "Slim fit chino pants",
+        "price": 49.99,
+        "category": "Clothing",
+        "stock": 200,
+        "image_url": "https://dummyimage.com/400x300/2ecc71/ffffff&text=Product",
+        "created_at": "2025-05-29T00:17:15.200501"
+    },
+    {
+        "id": 28,
+        "name": "Bomber Jacket",
+        "description": "Lightweight bomber jacket",
+        "price": 79.99,
+        "category": "Clothing",
+        "stock": 93,
+        "image_url": "https://dummyimage.com/400x300/e74c3c/ffffff&text=Product",
+        "created_at": "2025-05-12T00:17:15.200501"
+    },
+    {
+        "id": 29,
+        "name": "Athletic Shorts",
+        "description": "Breathable athletic shorts",
+        "price": 29.99,
+        "category": "Clothing",
+        "stock": 24,
+        "image_url": "https://dummyimage.com/400x300/9b59b6/ffffff&text=Product",
+        "created_at": "2025-09-20T00:17:15.200501"
+    },
+    {
+        "id": 30,
+        "name": "Wool Sweater",
+        "description": "Warm wool sweater",
+        "price": 69.99,
+        "category": "Clothing",
+        "stock": 58,
+        "image_url": "https://dummyimage.com/400x300/f39c12/ffffff&text=Product",
+        "created_at": "2025-09-22T00:17:15.200501"
+    },
+    {
+        "id": 31,
+        "name": "Python Programming Guide",
+        "description": "Complete guide to Python programming",
+        "price": 39.99,
+        "category": "Books",
+        "stock": 400,
+        "image_url": "https://dummyimage.com/400x300/1abc9c/ffffff&text=Product",
+        "created_at": "2025-04-20T00:17:15.200501",
+        "updated_at": "2025-11-30T11:56:41.253468"
+    },
+    {
+        "id": 32,
+        "name": "Mystery Novel Collection",
+        "description": "Set of 3 bestselling mystery novels",
+        "price": 29.99,
+        "category": "Books",
+        "stock": 45,
+        "image_url": "https://dummyimage.com/400x300/34495e/ffffff&text=Product",
+        "created_at": "2025-05-06T00:17:15.200501"
+    },
+    {
+        "id": 33,
+        "name": "Science Fiction Anthology",
+        "description": "Classic sci-fi short stories",
+        "price": 24.99,
+        "category": "Books",
+        "stock": 159,
+        "image_url": "https://dummyimage.com/400x300/16a085/ffffff&text=Product",
+        "created_at": "2025-06-06T00:17:15.200501"
+    },
+    {
+        "id": 34,
+        "name": "Cooking Masterclass",
+        "description": "Professional cooking techniques",
+        "price": 34.99,
+        "category": "Books",
+        "stock": 32,
+        "image_url": "https://dummyimage.com/400x300/c0392b/ffffff&text=Product",
+        "created_at": "2025-04-27T00:17:15.200501"
+    },
+    {
+        "id": 35,
+        "name": "Fitness & Nutrition",
+        "description": "Complete guide to healthy living",
+        "price": 27.99,
+        "category": "Books",
+        "stock": 78,
+        "image_url": "https://dummyimage.com/400x300/2c3e50/ffffff&text=Product",
+        "created_at": "2025-09-11T00:17:15.200501"
+    },
+    {
+        "id": 36,
+        "name": "Business Strategy",
+        "description": "Modern business management strategies",
+        "price": 44.99,
+        "category": "Books",
+        "stock": 154,
+        "image_url": "https://dummyimage.com/400x300/8e44ad/ffffff&text=Product",
+        "created_at": "2025-10-03T00:17:15.200501"
+    },
+    {
+        "id": 37,
+        "name": "Graphic Design Basics",
+        "description": "Introduction to graphic design",
+        "price": 32.99,
+        "category": "Books",
+        "stock": 71,
+        "image_url": "https://dummyimage.com/400x300/27ae60/ffffff&text=Product",
+        "created_at": "2025-06-05T00:17:15.200501"
+    },
+    {
+        "id": 38,
+        "name": "World History",
+        "description": "Comprehensive world history textbook",
+        "price": 49.99,
+        "category": "Books",
+        "stock": 129,
+        "image_url": "https://dummyimage.com/400x300/d35400/ffffff&text=Product",
+        "created_at": "2025-09-23T00:17:15.200501"
+    },
+    {
+        "id": 39,
+        "name": "Photography Guide",
+        "description": "Digital photography for beginners",
+        "price": 36.99,
+        "category": "Books",
+        "stock": 107,
+        "image_url": "https://dummyimage.com/400x300/7f8c8d/ffffff&text=Product",
+        "created_at": "2025-09-16T00:17:15.200501"
+    },
+    {
+        "id": 40,
+        "name": "Self-Help Classic",
+        "description": "Life-changing self-improvement book",
+        "price": 22.99,
+        "category": "Books",
+        "stock": 40,
+        "image_url": "https://dummyimage.com/400x300/95a5a6/ffffff&text=Product",
+        "created_at": "2025-09-08T00:17:15.200501"
+    },
+    {
+        "id": 41,
+        "name": "Travel Guide Europe",
+        "description": "Complete European travel guide",
+        "price": 31.99,
+        "category": "Books",
+        "stock": 28,
+        "image_url": "https://picsum.photos/400/300?random=1",
+        "created_at": "2025-04-25T00:17:15.200501"
+    },
+    {
+        "id": 42,
+        "name": "Children Story Collection",
+        "description": "Classic bedtime stories for kids",
+        "price": 19.99,
+        "category": "Books",
+        "stock": 63,
+        "image_url": "https://picsum.photos/400/300?random=2",
+        "created_at": "2025-05-23T00:17:15.200501"
+    },
+    {
+        "id": 43,
+        "name": "Biography Collection",
+        "description": "Inspiring life stories",
+        "price": 28.99,
+        "category": "Books",
+        "stock": 73,
+        "image_url": "https://picsum.photos/400/300?random=3",
+        "created_at": "2025-10-13T00:17:15.200501"
+    },
+    {
+        "id": 44,
+        "name": "Philosophy Essentials",
+        "description": "Introduction to philosophy",
+        "price": 38.99,
+        "category": "Books",
+        "stock": 56,
+        "image_url": "https://picsum.photos/400/300?random=4",
+        "created_at": "2025-04-25T00:17:15.200501"
+    },
+    {
+        "id": 45,
+        "name": "Art History",
+        "description": "Survey of Western art history",
+        "price": 42.99,
+        "category": "Books",
+        "stock": 118,
+        "image_url": "https://picsum.photos/400/300?random=5",
+        "created_at": "2025-08-18T00:17:15.200501"
+    },
+    {
+        "id": 46,
+        "name": "Coffee Maker",
+        "description": "Programmable 12-cup coffee maker",
+        "price": 79.99,
+        "category": "Home & Garden",
+        "stock": 122,
+        "image_url": "https://picsum.photos/400/300?random=6",
+        "created_at": "2025-08-01T00:17:15.200501"
+    },
+    {
+        "id": 47,
+        "name": "Blender Pro",
+        "description": "High-speed blender for smoothies",
+        "price": 129.99,
+        "category": "Home & Garden",
+        "stock": 189,
+        "image_url": "https://picsum.photos/400/300?random=7",
+        "created_at": "2025-09-10T00:17:15.200501"
+    },
+    {
+        "id": 48,
+        "name": "Garden Hose 50ft",
+        "description": "Expandable garden hose",
+        "price": 34.99,
+        "category": "Home & Garden",
+        "stock": 56,
+        "image_url": "https://picsum.photos/400/300?random=8",
+        "created_at": "2025-05-02T00:17:15.200501"
+    },
+    {
+        "id": 49,
+        "name": "LED Desk Lamp",
+        "description": "Adjustable LED desk lamp",
+        "price": 44.99,
+        "category": "Home & Garden",
+        "stock": 53,
+        "image_url": "https://picsum.photos/400/300?random=9",
+        "created_at": "2025-08-06T00:17:15.200501"
+    },
+    {
+        "id": 50,
+        "name": "Storage Bins Set",
+        "description": "Set of 6 plastic storage bins",
+        "price": 39.99,
+        "category": "Home & Garden",
+        "stock": 42,
+        "image_url": "https://picsum.photos/400/300?random=10",
+        "created_at": "2025-06-06T00:17:15.200501"
+    },
+    {
+        "id": 51,
+        "name": "Vacuum Cleaner",
+        "description": "Bagless upright vacuum cleaner",
+        "price": 149.99,
+        "category": "Home & Garden",
+        "stock": 165,
+        "image_url": "https://picsum.photos/400/300?random=11",
+        "created_at": "2025-05-26T00:17:15.200501"
+    },
+    {
+        "id": 52,
+        "name": "Cookware Set",
+        "description": "10-piece non-stick cookware set",
+        "price": 199.99,
+        "category": "Home & Garden",
+        "stock": 167,
+        "image_url": "https://picsum.photos/400/300?random=12",
+        "created_at": "2025-09-30T00:17:15.200501"
+    },
+    {
+        "id": 53,
+        "name": "Bath Towel Set",
+        "description": "Set of 6 premium cotton towels",
+        "price": 49.99,
+        "category": "Home & Garden",
+        "stock": 29,
+        "image_url": "https://picsum.photos/400/300?random=13",
+        "created_at": "2025-09-15T00:17:15.200501"
+    },
+    {
+        "id": 54,
+        "name": "Plant Pots Set",
+        "description": "Ceramic plant pots with drainage",
+        "price": 29.99,
+        "category": "Home & Garden",
+        "stock": 199,
+        "image_url": "https://picsum.photos/400/300?random=14",
+        "created_at": "2025-05-18T00:17:15.200501"
+    },
+    {
+        "id": 55,
+        "name": "Tool Set",
+        "description": "100-piece home repair tool set",
+        "price": 89.99,
+        "category": "Home & Garden",
+        "stock": 158,
+        "image_url": "https://picsum.photos/400/300?random=15",
+        "created_at": "2025-08-25T00:17:15.200501"
+    },
+    {
+        "id": 56,
+        "name": "Bed Sheet Set",
+        "description": "Queen size microfiber sheet set",
+        "price": 54.99,
+        "category": "Home & Garden",
+        "stock": 149,
+        "image_url": "https://placeholder.pics/svg/400x300/3498db-FFFFFF/3498db-FFFFFF/Product",
+        "created_at": "2025-10-05T00:17:15.200501"
+    },
+    {
+        "id": 57,
+        "name": "Wall Clock",
+        "description": "Modern minimalist wall clock",
+        "price": 39.99,
+        "category": "Home & Garden",
+        "stock": 171,
+        "image_url": "https://placeholder.pics/svg/400x300/2ecc71-FFFFFF/2ecc71-FFFFFF/Product",
+        "created_at": "2025-09-25T00:17:15.200501"
+    },
+    {
+        "id": 58,
+        "name": "Cutting Board Set",
+        "description": "Bamboo cutting board set of 3",
+        "price": 34.99,
+        "category": "Home & Garden",
+        "stock": 118,
+        "image_url": "https://placeholder.pics/svg/400x300/e74c3c-FFFFFF/e74c3c-FFFFFF/Product",
+        "created_at": "2025-09-29T00:17:15.200501"
+    },
+    {
+        "id": 59,
+        "name": "Shower Curtain",
+        "description": "Waterproof fabric shower curtain",
+        "price": 24.99,
+        "category": "Home & Garden",
+        "stock": 88,
+        "image_url": "https://placeholder.pics/svg/400x300/9b59b6-FFFFFF/9b59b6-FFFFFF/Product",
+        "created_at": "2025-04-22T00:17:15.200501"
+    },
+    {
+        "id": 60,
+        "name": "Garden Tools Kit",
+        "description": "Essential gardening tools kit",
+        "price": 64.99,
+        "category": "Home & Garden",
+        "stock": 159,
+        "image_url": "https://placeholder.pics/svg/400x300/f39c12-FFFFFF/f39c12-FFFFFF/Product",
+        "created_at": "2025-06-26T00:17:15.200501"
+    },
+    {
+        "id": 61,
+        "name": "Yoga Mat",
+        "description": "Non-slip exercise yoga mat",
+        "price": 29.99,
+        "category": "Sports",
+        "stock": 11,
+        "image_url": "https://placeholder.pics/svg/400x300/1abc9c-FFFFFF/1abc9c-FFFFFF/Product",
+        "created_at": "2025-08-27T00:17:15.200501"
+    },
+    {
+        "id": 62,
+        "name": "Dumbbell Set",
+        "description": "Adjustable dumbbell set 50lbs",
+        "price": 149.99,
+        "category": "Sports",
+        "stock": 171,
+        "image_url": "https://placeholder.pics/svg/400x300/34495e-FFFFFF/34495e-FFFFFF/Product",
+        "created_at": "2025-06-11T00:17:15.200501"
+    },
+    {
+        "id": 63,
+        "name": "Resistance Bands",
+        "description": "Set of 5 resistance bands",
+        "price": 24.99,
+        "category": "Sports",
+        "stock": 183,
+        "image_url": "https://placeholder.pics/svg/400x300/16a085-FFFFFF/16a085-FFFFFF/Product",
+        "created_at": "2025-09-03T00:17:15.200501"
+    },
+    {
+        "id": 64,
+        "name": "Jump Rope",
+        "description": "Speed jump rope for cardio",
+        "price": 14.99,
+        "category": "Sports",
+        "stock": 15,
+        "image_url": "https://placeholder.pics/svg/400x300/c0392b-FFFFFF/c0392b-FFFFFF/Product",
+        "created_at": "2025-04-26T00:17:15.200501"
+    },
+    {
+        "id": 65,
+        "name": "Basketball",
+        "description": "Official size basketball",
+        "price": 34.99,
+        "category": "Sports",
+        "stock": 137,
+        "image_url": "https://placeholder.pics/svg/400x300/2c3e50-FFFFFF/2c3e50-FFFFFF/Product",
+        "created_at": "2025-04-29T00:17:15.200501"
+    },
+    {
+        "id": 66,
+        "name": "Soccer Ball",
+        "description": "Professional soccer ball size 5",
+        "price": 29.99,
+        "category": "Sports",
+        "stock": 126,
+        "image_url": "https://dummyimage.com/400x300/3498db/ffffff&text=Product",
+        "created_at": "2025-04-30T00:17:15.200501"
+    },
+    {
+        "id": 67,
+        "name": "Tennis Racket",
+        "description": "Lightweight tennis racket",
+        "price": 79.99,
+        "category": "Sports",
+        "stock": 93,
+        "image_url": "https://dummyimage.com/400x300/2ecc71/ffffff&text=Product",
+        "created_at": "2025-09-20T00:17:15.200501"
+    },
+    {
+        "id": 68,
+        "name": "Bicycle Helmet",
+        "description": "Safety certified bike helmet",
+        "price": 49.99,
+        "category": "Sports",
+        "stock": 81,
+        "image_url": "https://dummyimage.com/400x300/e74c3c/ffffff&text=Product",
+        "created_at": "2025-08-01T00:17:15.200501"
+    },
+    {
+        "id": 69,
+        "name": "Water Bottle 32oz",
+        "description": "Insulated stainless steel bottle",
+        "price": 24.99,
+        "category": "Sports",
+        "stock": 12,
+        "image_url": "https://dummyimage.com/400x300/9b59b6/ffffff&text=Product",
+        "created_at": "2025-10-12T00:17:15.200501"
+    },
+    {
+        "id": 70,
+        "name": "Gym Bag",
+        "description": "Durable sports gym bag",
+        "price": 44.99,
+        "category": "Sports",
+        "stock": 157,
+        "image_url": "https://dummyimage.com/400x300/f39c12/ffffff&text=Product",
+        "created_at": "2025-09-30T00:17:15.200501"
+    },
+    {
+        "id": 71,
+        "name": "Boxing Gloves",
+        "description": "Training boxing gloves 12oz",
+        "price": 54.99,
+        "category": "Sports",
+        "stock": 39,
+        "image_url": "https://dummyimage.com/400x300/1abc9c/ffffff&text=Product",
+        "created_at": "2025-08-19T00:17:15.200501"
+    },
+    {
+        "id": 72,
+        "name": "Skateboard",
+        "description": "Complete skateboard for beginners",
+        "price": 69.99,
+        "category": "Sports",
+        "stock": 116,
+        "image_url": "https://dummyimage.com/400x300/34495e/ffffff&text=Product",
+        "created_at": "2025-07-16T00:17:15.200501"
+    },
+    {
+        "id": 73,
+        "name": "Badminton Set",
+        "description": "Complete badminton set with net",
+        "price": 59.99,
+        "category": "Sports",
+        "stock": 103,
+        "image_url": "https://dummyimage.com/400x300/16a085/ffffff&text=Product",
+        "created_at": "2025-09-18T00:17:15.200501"
+    },
+    {
+        "id": 74,
+        "name": "Swimming Goggles",
+        "description": "Anti-fog swimming goggles",
+        "price": 19.99,
+        "category": "Sports",
+        "stock": 86,
+        "image_url": "https://dummyimage.com/400x300/c0392b/ffffff&text=Product",
+        "created_at": "2025-08-11T00:17:15.200501"
+    },
+    {
+        "id": 75,
+        "name": "Fitness Tracker",
+        "description": "Basic fitness activity tracker",
+        "price": 39.99,
+        "category": "Sports",
+        "stock": 26,
+        "image_url": "https://dummyimage.com/400x300/2c3e50/ffffff&text=Product",
+        "created_at": "2025-08-28T00:17:15.200501"
+    },
+    {
+        "id": 76,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T12:29:38.139101"
+    },
+    {
+        "id": 77,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T12:32:46.416229"
+    },
+    {
+        "id": 78,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T12:33:02.746253"
+    },
+    {
+        "id": 79,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez2.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T12:33:18.912566"
+    },
+    {
+        "id": 80,
+        "name": "new product1",
+        "description": "Updated description",
+        "price": 34.99,
+        "category": "Electronics",
+        "stock": 75,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T12:33:22.849125",
+        "updated_at": "2025-11-13T12:34:12.443847"
+    },
+    {
+        "id": 81,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T15:48:31.749779"
+    },
+    {
+        "id": 82,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T15:48:59.404526"
+    },
+    {
+        "id": 83,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T18:31:43.188277"
+    },
+    {
+        "id": 84,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T18:31:52.938276"
+    },
+    {
+        "id": 85,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T18:32:48.262569"
+    },
+    {
+        "id": 86,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T18:45:18.833425"
+    },
+    {
+        "id": 87,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-13T18:46:16.435116"
+    },
+    {
+        "id": 88,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-15T22:07:47.989837"
+    },
+    {
+        "id": 89,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:09:30.867060"
+    },
+    {
+        "id": 90,
+        "name": "new product1",
+        "description": "Updated Desc",
+        "price": 34.99,
+        "category": "Electronics",
+        "stock": 75,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:12:39.906152",
+        "updated_at": "2025-11-16T00:12:41.630810"
+    },
+    {
+        "id": 91,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:15:14.561087"
+    },
+    {
+        "id": 92,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:27:51.014836"
+    },
+    {
+        "id": 93,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:29:13.494310"
+    },
+    {
+        "id": 94,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:35:21.732952"
+    },
+    {
+        "id": 95,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:39:25.284030"
+    },
+    {
+        "id": 96,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T00:42:33.559111"
+    },
+    {
+        "id": 97,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T03:51:29.763959"
+    },
+    {
+        "id": 98,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T04:07:37.226668"
+    },
+    {
+        "id": 99,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T04:07:54.984842"
+    },
+    {
+        "id": 100,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T04:12:19.329709"
+    },
+    {
+        "id": 101,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T04:12:56.333570"
+    },
+    {
+        "id": 102,
+        "name": "new product1",
+        "description": "Updated Desc",
+        "price": 34.99,
+        "category": "Electronics",
+        "stock": 75,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T04:31:59.657854",
+        "updated_at": "2025-11-16T04:32:00.041418"
+    },
+    {
+        "id": 103,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T23:51:57.514473"
+    },
+    {
+        "id": 104,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T23:54:31.887544"
+    },
+    {
+        "id": 105,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-16T23:58:25.355255"
+    },
+    {
+        "id": 106,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-17T00:20:41.028665"
+    },
+    {
+        "id": 107,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-17T00:21:30.229394"
+    },
+    {
+        "id": 108,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-17T00:22:42.761873"
+    },
+    {
+        "id": 109,
+        "name": "new product1",
+        "description": "new product description1",
+        "price": 29.99,
+        "category": "Electronics",
+        "stock": 20,
+        "image_url": "https://ci.suez.edu.eg/wp-content/uploads/2022/08/iti-logo.png",
+        "created_at": "2025-11-17T00:28:16.903778"
+    }
+]

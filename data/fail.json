@@ -1,0 +1,46 @@
+{
+    "addtocart": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "cancelorder": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "checkout": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "login": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "register": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "search": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "wishlist": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "like": {
+        "clickable": "true",
+        "visible": "true",
+        "visiabledelay": "0"
+    },
+    "price": {
+        "uitotalprice": false ,
+        "apitotalprice": false
+    }
+}

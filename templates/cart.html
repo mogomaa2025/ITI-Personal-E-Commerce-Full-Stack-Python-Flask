@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}Cart - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 id="cart-title">Shopping Cart</h1>
+    
+    <div id="cart-container">
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
+        <div class="cart-summary" id="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button id="btn-checkout" class="btn btn-primary btn-block">
+                Proceed to Checkout
+            </button>
+            <button id="btn-clear-cart" class="btn btn-outline btn-block">
+                Clear Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuth();
+        loadCart();
+        
+        document.getElementById('btn-checkout').addEventListener('click', checkout);
+        document.getElementById('btn-clear-cart').addEventListener('click', clearCart);
+        
+        // Load test configuration for automatic price fail
+        loadTestConfig();
+    });
+
+    async function loadCart() {
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch('/api/cart', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                displayCart(result.data, result.total);
+            }
+        } catch (error) {
+            showAlert('Error loading cart', 'error');
+        }
+    }
+
+    function displayCart(items, total) {
+        const container = document.getElementById('cart-items');
+        
+        if (items.length === 0) {
+            container.innerHTML = '<p class="empty-cart" id="empty-cart">Your cart is empty</p>';
+            document.getElementById('cart-subtotal').textContent = '$0.00';
+            document.getElementById('cart-total').textContent = '$0.00';
+            return;
+        }
+        
+        // Apply UI price fail automatically if configured
+        if (window.testConfig && window.testConfig.price && window.testConfig.price.uitotalprice) {
+            total = Math.floor(total); // Simulate integer calculation error
+        }
+        
+        container.innerHTML = items.map(item => `
+            <div class="cart-item" id="cart-item-${item.id}">
+                <div class="item-image">
+                    <img src="${item.product.image_url || '/static/img/placeholder.png'}" 
+                         alt="${item.product.name}">
+                </div>
+                <div class="item-details">
+                    <h4 id="cart-item-name-${item.id}">${item.product.name}</h4>
+                    <p class="item-price" id="cart-item-price-${item.id}">
+                        $${item.product.price.toFixed(2)}
+                    </p>
+                </div>
+                <div class="item-quantity">
+                    <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" 
+                            id="btn-decrease-${item.id}" class="btn-qty">-</button>
+                    <input type="number" value="${item.quantity}" min="1" 
+                           id="qty-input-${item.id}" class="qty-input"
+                           onchange="updateQuantity(${item.id}, this.value)">
+                    <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" 
+                            id="btn-increase-${item.id}" class="btn-qty">+</button>
+                </div>
+                <div class="item-total">
+                    <p id="cart-item-total-${item.id}">$${item.item_total.toFixed(2)}</p>
+                </div>
+                <button onclick="removeItem(${item.id})" class="btn-remove" 
+                        id="btn-remove-${item.id}">×</button>
+            </div>
+        `).join('');
+        
+        document.getElementById('cart-subtotal').textContent = `$${total.toFixed(2)}`;
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+    }
+
+    async function updateQuantity(itemId, newQty) {
+        if (newQty < 1) {
+            removeItem(itemId);
+            return;
+        }
+        
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch(`/api/cart/items/${itemId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ quantity: parseInt(newQty) })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                loadCart();
+                updateCartCount();
+            }
+        } catch (error) {
+            showAlert('Error updating quantity', 'error');
+        }
+    }
+
+    async function removeItem(itemId) {
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch(`/api/cart/items/${itemId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Item removed', 'success');
+                loadCart();
+                updateCartCount();
+            }
+        } catch (error) {
+            showAlert('Error removing item', 'error');
+        }
+    }
+
+    async function clearCart() {
+        if (!confirm('Are you sure you want to clear your cart?')) return;
+        
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch('/api/cart', {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Cart cleared', 'success');
+                loadCart();
+                updateCartCount();
+            }
+        } catch (error) {
+            showAlert('Error clearing cart', 'error');
+        }
+    }
+
+    async function checkout() {
+        const token = localStorage.getItem('token');
+        const address = prompt('Enter shipping address:');
+        
+        if (!address) return;
+        
+        try {
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ shipping_address: address })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Order placed successfully!', 'success');
+                setTimeout(() => {
+                    window.location.href = '/web/orders';
+                }, 2000);
+            } else {
+                showAlert(result.error || 'Checkout failed', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+</script>
+{% endblock %}

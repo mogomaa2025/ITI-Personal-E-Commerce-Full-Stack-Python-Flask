@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Home - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="hero" id="hero-section">
+    <div class="container">
+        <h1 id="hero-title">Welcome to E-Commerce Store</h1>
+        <p id="hero-subtitle">Your one-stop shop for everything you need</p>
+        <a href="/web/products" id="btn-shop-now" class="btn btn-large btn-primary">Shop Now</a>
+    </div>
+</div>
+
+<div class="container">
+    <section class="features" id="features-section">
+        <h2 id="features-title">Why Choose Us</h2>
+        <div class="feature-grid">
+            <div class="feature-card" id="feature-quality">
+                <h3>Quality Products</h3>
+                <p>Top-notch products from trusted brands</p>
+            </div>
+            <div class="feature-card" id="feature-delivery">
+                <h3>Fast Delivery</h3>
+                <p>Quick and reliable shipping</p>
+            </div>
+            <div class="feature-card" id="feature-support">
+                <h3>24/7 Support</h3>
+                <p>Always here to help you</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories-section">
+        <h2 id="categories-title">Shop by Category</h2>
+        <div id="categories-list" class="category-grid">
+            <!-- Categories will be loaded dynamically -->
+        </div>
+    </section>
+</div>
+
+<script>
+    // Load categories on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadCategories();
+    });
+
+    async function loadCategories() {
+        try {
+            const response = await fetch('/api/categories');
+            const result = await response.json();
+            
+            if (result.success) {
+                displayCategories(result.data);
+            }
+        } catch (error) {
+            console.error('Error loading categories:', error);
+        }
+    }
+
+    function displayCategories(categories) {
+        const container = document.getElementById('categories-list');
+        container.innerHTML = categories.map(cat => `
+            <a href="/web/products?category=${cat.name}" class="category-card" id="category-${cat.id}">
+                <h3>${cat.name}</h3>
+                <p>${cat.description}</p>
+            </a>
+        `).join('');
+    }
+</script>
+{% endblock %}

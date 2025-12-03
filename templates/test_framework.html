@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Testing Framework - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Testing Framework Demo</h1>
+    <p>This page demonstrates the testing framework capabilities. Modify <code>data/fail.json</code> to control element behavior.</p>
+    
+    <div class="test-section">
+        <h2>Test Controls</h2>
+        <div class="test-buttons">
+            <button onclick="addToCart(1)" class="btn btn-primary">Add to Cart</button>
+            <button onclick="cancelOrder(1)" class="btn btn-outline">Cancel Order</button>
+            <button onclick="checkout()" class="btn btn-success">Checkout</button>
+            <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="register()" class="btn btn-outline">Register</button>
+            <button onclick="search()" class="btn btn-secondary">Search</button>
+            <button onclick="addToWishlist(1)" class="btn btn-outline">Add to Wishlist</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Current Configuration</h2>
+        <pre id="config-display">Loading configuration...</pre>
+        <button onclick="reloadConfig()" class="btn btn-outline btn-small">Reload Config</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Framework Status</h2>
+        <div id="framework-status">
+            <p>Loading framework status...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Mock functions for testing
+    function addToCart(productId) {
+        console.log('Add to cart clicked for product:', productId);
+        showAlert('Add to cart clicked', 'info');
+    }
+    
+    function cancelOrder(orderId) {
+        console.log('Cancel order clicked for order:', orderId);
+        showAlert('Cancel order clicked', 'info');
+    }
+    
+    function checkout() {
+        console.log('Checkout clicked');
+        showAlert('Checkout clicked', 'info');
+    }
+    
+    function login() {
+        console.log('Login clicked');
+        showAlert('Login clicked', 'info');
+    }
+    
+    function register() {
+        console.log('Register clicked');
+        showAlert('Register clicked', 'info');
+    }
+    
+    function search() {
+        console.log('Search clicked');
+        showAlert('Search clicked', 'info');
+    }
+    
+    function addToWishlist(productId) {
+        console.log('Add to wishlist clicked for product:', productId);
+        showAlert('Add to wishlist clicked', 'info');
+    }
+    
+    function reloadConfig() {
+        loadTestConfig();
+        updateConfigDisplay();
+    }
+    
+    function updateConfigDisplay() {
+        const configDisplay = document.getElementById('config-display');
+        if (window.testConfig) {
+            configDisplay.textContent = JSON.stringify(window.testConfig, null, 2);
+        } else {
+            configDisplay.textContent = 'No configuration loaded';
+        }
+    }
+    
+    function updateFrameworkStatus() {
+        const statusDiv = document.getElementById('framework-status');
+        const status = {
+            'Test Config Loaded': !!window.testConfig,
+            'Load Test Config Function': typeof loadTestConfig === 'function',
+            'Apply Test Config Function': typeof applyTestConfig === 'function',
+            'Get Elements By Type Function': typeof getElementsByType === 'function'
+        };
+        
+        let statusHTML = '<ul>';
+        Object.keys(status).forEach(key => {
+            const value = status[key] ? '✅' : '❌';
+            statusHTML += `<li>${key}: ${value}</li>`;
+        });
+        statusHTML += '</ul>';
+        
+        statusDiv.innerHTML = statusHTML;
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Wait for framework to load
+        setTimeout(() => {
+            updateConfigDisplay();
+            updateFrameworkStatus();
+        }, 1000);
+    });
+</script>
+
+<style>
+.test-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.test-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.test-buttons .btn {
+    margin: 0.25rem;
+}
+
+#config-display {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#framework-status ul {
+    list-style: none;
+    padding: 0;
+}
+
+#framework-status li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+</style>
+{% endblock %}

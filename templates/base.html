@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}E-Commerce Store{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" id="logo-link">  <img src="{{ url_for('static', filename='img/i3ti.png') }}" alt="i3ti.png" height="auto"> E-Commerce Store</a>
+                <!--broken one only work in home page 
+                
+                <a href="/" id="logo-link">  <img src="static/img/i3ti.png" alt="i3ti.png" height="auto"> E-Commerce Store</a> 
+                 -->
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" id="nav-home">Home</a></li>
+                <li><a href="/web/products" id="nav-products">Products</a></li>
+                <li><a href="/web/cart" id="nav-cart">Cart <span id="cart-count" class="badge">0</span></a></li>
+                <li><a href="/web/orders" id="nav-orders">Orders</a></li>
+                <li><a href="/web/help" id="nav-help">Help</a></li>
+                <li><a href="/web/contact" id="nav-contact">Contact</a></li>
+                <li><a href="/web/advanced-search" id="nav-advanced-search">🔍 Search</a></li>
+                <li id="user-menu" style="display: none;">
+                    <a href="/web/profile" id="nav-profile">Profile</a>
+                    <a href="/web/wishlist" id="nav-wishlist">Wishlist</a>
+                    <a href="/web/notifications" id="nav-notifications">Notifications <span id="notification-count" class="badge">0</span></a>
+                    <button id="btn-logout" class="btn btn-outline">Logout</button>
+                </li>
+                <li id="guest-menu">
+                    <a href="/web/login" id="nav-login" class="btn btn-primary">Login</a>
+                    <a href="/web/register" id="nav-register" class="btn btn-outline">Register</a>
+                </li>
+                <li id="admin-menu" style="display: none;">
+                    <a href="/web/admin" id="nav-admin" class="btn btn-admin">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Alert Messages -->
+    <div id="alert-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ITI Graduation Project - E-Commerce Store - by Eng. Mohamed Gomaa</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

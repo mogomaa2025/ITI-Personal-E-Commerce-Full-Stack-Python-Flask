@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "title": "Top 10 Electronics Trends for 2024",
+        "content": "Discover the latest trends in electronics and technology...",
+        "author": "Tech Team",
+        "featured_image": "https://picsum.photos/800/400?random=101",
+        "excerpt": "Explore the cutting-edge electronics trends shaping 2024...",
+        "tags": [
+            "electronics",
+            "trends",
+            "technology"
+        ],
+        "status": "published",
+        "views": 1253,
+        "created_at": "2025-10-14T00:22:36.663056",
+        "updated_at": "2025-10-14T00:22:36.663056"
+    },
+    {
+        "id": 2,
+        "title": "How to Choose the Perfect Laptop",
+        "content": "A comprehensive guide to selecting the right laptop for your needs...",
+        "author": "Product Team",
+        "featured_image": "https://picsum.photos/800/400?random=102",
+        "excerpt": "Learn what to look for when buying a new laptop...",
+        "tags": [
+            "laptops",
+            "buying guide",
+            "computers"
+        ],
+        "status": "published",
+        "views": 943,
+        "created_at": "2025-10-14T00:22:36.663056",
+        "updated_at": "2025-10-14T00:22:36.663056"
+    }
+]

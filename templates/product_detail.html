@@ -1,0 +1,577 @@
+{% extends "base.html" %}
+
+{% block title %}Product Details - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb-nav">
+        <a href="/" id="breadcrumb-home">Home</a> /
+        <a href="/web/products" id="breadcrumb-products">Products</a> /
+        <span id="breadcrumb-current">Product Details</span>
+    </nav>
+    
+    <div class="product-detail-container">
+        <!-- Product Main Info -->
+        <div class="product-detail-grid">
+            <!-- Product Image Section -->
+            <div class="product-image-section">
+                <div class="main-image" id="product-main-image">
+                    <img src="" alt="Product" id="product-detail-image">
+                </div>
+                <div class="product-badges">
+                    <span id="product-stock-badge" class="badge badge-success">In Stock</span>
+                </div>
+            </div>
+            
+            <!-- Product Info Section -->
+            <div class="product-info-section">
+                <h1 id="product-detail-name" class="product-title">Loading...</h1>
+                
+                <div class="product-meta">
+                    <span class="product-category-label">Category:</span>
+                    <span id="product-detail-category" class="product-category-value">-</span>
+                </div>
+                
+                <div class="product-rating" id="product-rating-section">
+                    <div class="stars" id="product-stars">
+                        <span>★★★★★</span>
+                    </div>
+                    <span id="product-rating-text">(0 reviews)</span>
+                </div>
+                
+                <div class="product-price-section">
+                    <h2 id="product-detail-price" class="product-price">$0.00</h2>
+                </div>
+                
+                <div class="product-description">
+                    <h3 id="description-title">Description</h3>
+                    <p id="product-detail-description">Loading product description...</p>
+                </div>
+                
+                <div class="product-stock-info">
+                    <span class="stock-label">Availability:</span>
+                    <span id="product-detail-stock" class="stock-value">0 units</span>
+                </div>
+                
+                <!-- Add to Cart Section -->
+                <div class="add-to-cart-section" id="add-to-cart-section">
+                    <div class="quantity-selector">
+                        <label for="quantity-input">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button id="btn-decrease-qty" class="qty-btn">-</button>
+                            <input type="number" id="quantity-input" class="qty-input" 
+                                   value="1" min="1" max="99">
+                            <button id="btn-increase-qty" class="qty-btn">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-buttons">
+                        <button id="btn-add-to-cart-detail" class="btn btn-primary btn-large">
+                            Add to Cart
+                        </button>
+                        <button id="btn-buy-now" class="btn btn-success btn-large">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button id="btn-like-product" class="btn btn-outline like-btn" onclick="toggleLike(productId)" style="cursor: pointer; pointer-events: auto;">
+                            🤍 Like <span id="like-count-product">0</span>
+                        </button>
+                        <button id="btn-add-to-wishlist" class="btn btn-outline" onclick="addToWishlist(productId)">
+                            ❤️ Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-actions-secondary">
+                    <button id="btn-back-to-products" class="btn btn-outline" 
+                            onclick="window.location.href='/web/products'">
+                        ← Back to Products
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Details Tabs -->
+        <div class="product-tabs" id="product-tabs">
+            <div class="tab-headers">
+                <button class="tab-header active" id="tab-header-reviews" 
+                        onclick="switchTab('reviews')">
+                    Reviews
+                </button>
+                <button class="tab-header" id="tab-header-specifications" 
+                        onclick="switchTab('specifications')">
+                    Specifications
+                </button>
+            </div>
+            
+            <!-- Reviews Tab -->
+            <div class="tab-content active" id="tab-reviews">
+                <div class="reviews-section">
+                    <div class="reviews-header">
+                        <h3 id="reviews-title">Customer Reviews</h3>
+                        <button id="btn-write-review" class="btn btn-primary">
+                            Write a Review
+                        </button>
+                    </div>
+                    
+                    <div class="reviews-summary" id="reviews-summary">
+                        <div class="avg-rating">
+                            <h2 id="avg-rating-value">0.0</h2>
+                            <div class="stars" id="avg-rating-stars">★★★★★</div>
+                            <p id="total-reviews-count">0 reviews</p>
+                        </div>
+                    </div>
+                    
+                    <div id="reviews-list" class="reviews-list">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Specifications Tab -->
+            <div class="tab-content" id="tab-specifications" style="display: none;">
+                <div class="specifications-section">
+                    <h3 id="specifications-title">Product Specifications</h3>
+                    <table class="specs-table" id="specs-table">
+                        <tr>
+                            <td class="spec-label">Product ID:</td>
+                            <td id="spec-product-id" class="spec-value">-</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Category:</td>
+                            <td id="spec-category" class="spec-value">-</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Stock:</td>
+                            <td id="spec-stock" class="spec-value">-</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Price:</td>
+                            <td id="spec-price" class="spec-value">-</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Added Date:</td>
+                            <td id="spec-date" class="spec-value">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Write Review Modal -->
+        <div id="review-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="close-review-modal">&times;</span>
+                <h2 id="review-modal-title">Write a Review</h2>
+                <form id="review-form">
+                    <div class="form-group">
+                        <label for="review-rating">Rating</label>
+                        <div class="rating-input" id="rating-input">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" class="star">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" class="star">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" class="star">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" class="star">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" class="star">★</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment">Your Review</label>
+                        <textarea id="review-comment" class="form-control" rows="5" 
+                                  placeholder="Share your experience with this product" required></textarea>
+                    </div>
+                    <button type="submit" id="btn-submit-review" class="btn btn-primary">
+                        Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Extract product ID from URL path
+    let productId = parseInt(window.location.pathname.split('/').pop());
+    let currentProduct = null;
+    let productReviews = [];
+    
+    // Validate product ID
+    if (isNaN(productId) || productId <= 0) {
+        showAlert('Invalid product ID', 'error');
+        setTimeout(() => window.location.href = '/web/products', 2000);
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        loadProductDetails();
+        loadProductReviews();
+        loadProductLikes();
+        checkUserReviewStatus();
+        
+        // Event listeners
+        document.getElementById('btn-decrease-qty').addEventListener('click', decreaseQuantity);
+        document.getElementById('btn-increase-qty').addEventListener('click', increaseQuantity);
+        document.getElementById('btn-add-to-cart-detail').addEventListener('click', addToCartFromDetail);
+        document.getElementById('btn-buy-now').addEventListener('click', buyNow);
+        document.getElementById('btn-write-review').addEventListener('click', showReviewModal);
+        document.getElementById('close-review-modal').addEventListener('click', closeReviewModal);
+        document.getElementById('review-form').addEventListener('submit', submitReview);
+    });
+    
+    async function loadProductDetails() {
+        try {
+            const response = await fetch(`/api/products/${productId}`);
+            const result = await response.json();
+            
+            if (result.success) {
+                currentProduct = result.data;
+                displayProduct(result.data);
+            } else {
+                showAlert('Product not found', 'error');
+                setTimeout(() => window.location.href = '/web/products', 2000);
+            }
+        } catch (error) {
+            showAlert('Error loading product', 'error');
+        }
+    }
+    
+    function displayProduct(product) {
+        // Basic info
+        document.getElementById('product-detail-name').textContent = product.name;
+        document.getElementById('product-detail-category').textContent = product.category;
+        document.getElementById('product-detail-price').textContent = `$${product.price.toFixed(2)}`;
+        document.getElementById('product-detail-description').textContent = 
+            product.description || 'No description available.';
+        document.getElementById('product-detail-stock').textContent = `${product.stock || 0} units`;
+        
+        // Image
+        const imgUrl = product.image_url || '/static/img/placeholder.png';
+        document.getElementById('product-detail-image').src = imgUrl;
+        document.getElementById('product-detail-image').alt = product.name;
+        
+        // Stock badge
+        const stockBadge = document.getElementById('product-stock-badge');
+        if (product.stock > 0) {
+            stockBadge.textContent = 'In Stock';
+            stockBadge.className = 'badge badge-success';
+        } else {
+            stockBadge.textContent = 'Out of Stock';
+            stockBadge.className = 'badge badge-danger';
+            document.getElementById('btn-add-to-cart-detail').disabled = true;
+            document.getElementById('btn-buy-now').disabled = true;
+        }
+        
+        // Quantity max
+        document.getElementById('quantity-input').max = product.stock || 1;
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-current').textContent = product.name;
+        
+        // Specifications tab
+        document.getElementById('spec-product-id').textContent = product.id;
+        document.getElementById('spec-category').textContent = product.category;
+        document.getElementById('spec-stock').textContent = `${product.stock || 0} units`;
+        document.getElementById('spec-price').textContent = `$${product.price.toFixed(2)}`;
+        
+        if (product.created_at) {
+            const date = new Date(product.created_at);
+            document.getElementById('spec-date').textContent = date.toLocaleDateString();
+        }
+    }
+    
+    async function loadProductReviews() {
+        try {
+            const response = await fetch(`/api/products/${productId}/reviews`);
+            const result = await response.json();
+            
+            if (result.success) {
+                productReviews = result.data;
+                displayReviews(result.data, result.average_rating, result.count);
+            }
+        } catch (error) {
+            console.error('Error loading reviews:', error);
+        }
+    }
+    
+    async function checkUserReviewStatus() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            // User not logged in, show normal review button
+            updateReviewButton(false, null);
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/products/${productId}/reviews/check`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                updateReviewButton(data.has_reviewed, data.review);
+            }
+        } catch (error) {
+            console.error('Error checking review status:', error);
+            // On error, show normal review button
+            updateReviewButton(false, null);
+        }
+    }
+    
+    function updateReviewButton(hasReviewed, userReview) {
+        const reviewButton = document.getElementById('btn-write-review');
+        
+        if (hasReviewed && userReview) {
+            // User has already reviewed this product
+            reviewButton.textContent = 'You Already Reviewed This Product';
+            reviewButton.disabled = true;
+            reviewButton.classList.remove('btn-primary');
+            reviewButton.classList.add('btn-secondary');
+            reviewButton.title = `You rated this product ${userReview.rating} stars on ${new Date(userReview.created_at).toLocaleDateString()}`;
+        } else {
+            // User hasn't reviewed this product yet
+            reviewButton.textContent = 'Write a Review';
+            reviewButton.disabled = false;
+            reviewButton.classList.remove('btn-secondary');
+            reviewButton.classList.add('btn-primary');
+            reviewButton.title = 'Write a review for this product';
+        }
+    }
+    
+    async function loadProductLikes() {
+        try {
+            // Load likes count
+            const likesResponse = await fetch(`/api/products/${productId}/likes`);
+            const likesResult = await likesResponse.json();
+            
+            if (likesResult.success) {
+                document.getElementById('like-count-product').textContent = likesResult.count;
+            }
+            
+            // Check localStorage first (faster)
+            const likedProducts = JSON.parse(localStorage.getItem('liked_products') || '[]');
+            if (likedProducts.includes(productId)) {
+                console.log('Product already liked in localStorage');
+                updateLikeButton(productId, true);
+                return;
+            }
+            
+            // Check if current user has liked this product on server
+            const token = localStorage.getItem('token');
+            if (token) {
+                const checkResponse = await fetch(`/api/products/${productId}/likes/check`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const checkResult = await checkResponse.json();
+                
+                if (checkResult.success && checkResult.liked) {
+                    updateLikeButton(productId, true);
+                    // Add to localStorage for future checks
+                    const likedProducts = JSON.parse(localStorage.getItem('liked_products') || '[]');
+                    if (!likedProducts.includes(productId)) {
+                        likedProducts.push(productId);
+                        localStorage.setItem('liked_products', JSON.stringify(likedProducts));
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error loading likes:', error);
+        }
+    }
+    
+    function displayReviews(reviews, avgRating, count) {
+        // Update average rating
+        document.getElementById('avg-rating-value').textContent = avgRating.toFixed(1);
+        document.getElementById('total-reviews-count').textContent = `${count} review${count !== 1 ? 's' : ''}`;
+        document.getElementById('product-rating-text').textContent = `(${count} review${count !== 1 ? 's' : ''})`;
+        
+        // Display stars
+        displayStars('avg-rating-stars', avgRating);
+        displayStars('product-stars', avgRating);
+        
+        // Display reviews list
+        const reviewsList = document.getElementById('reviews-list');
+        
+        if (reviews.length === 0) {
+            reviewsList.innerHTML = '<p class="no-reviews" id="no-reviews">No reviews yet. Be the first to review!</p>';
+            return;
+        }
+        
+        reviewsList.innerHTML = reviews.map((review, index) => `
+            <div class="review-card" id="review-${review.id}">
+                <div class="review-header">
+                    <div class="review-rating" id="review-rating-${review.id}">
+                        ${displayStarsHtml(review.rating)}
+                    </div>
+                    <span class="review-date" id="review-date-${review.id}">
+                        ${new Date(review.created_at).toLocaleDateString()}
+                    </span>
+                </div>
+                <p class="review-comment" id="review-comment-${review.id}">
+                    ${review.comment || 'No comment provided.'}
+                </p>
+            </div>
+        `).join('');
+    }
+    
+    function displayStars(elementId, rating) {
+        const element = document.getElementById(elementId);
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 >= 0.5;
+        let starsHtml = '';
+        
+        for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+                starsHtml += '★';
+            } else if (i === fullStars && hasHalfStar) {
+                starsHtml += '★';
+            } else {
+                starsHtml += '☆';
+            }
+        }
+        
+        element.innerHTML = starsHtml;
+    }
+    
+    function displayStarsHtml(rating) {
+        let starsHtml = '';
+        for (let i = 0; i < 5; i++) {
+            starsHtml += i < rating ? '★' : '☆';
+        }
+        return starsHtml;
+    }
+    
+    function decreaseQuantity() {
+        const input = document.getElementById('quantity-input');
+        if (input.value > 1) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
+    
+    function increaseQuantity() {
+        const input = document.getElementById('quantity-input');
+        const max = parseInt(input.max);
+        if (parseInt(input.value) < max) {
+            input.value = parseInt(input.value) + 1;
+        }
+    }
+    
+    async function addToCartFromDetail() {
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+            showAlert('Please login to add items to cart', 'error');
+            setTimeout(() => window.location.href = '/web/login', 1500);
+            return;
+        }
+        
+        const quantity = parseInt(document.getElementById('quantity-input').value);
+        
+        try {
+            const response = await fetch('/api/cart/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ product_id: productId, quantity: quantity })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Added to cart successfully!', 'success');
+                updateCartCount();
+            } else {
+                showAlert(result.error || 'Failed to add to cart', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+    
+    async function buyNow() {
+        await addToCartFromDetail();
+        setTimeout(() => {
+            window.location.href = '/web/cart';
+        }, 1000);
+    }
+    
+    function switchTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        document.querySelectorAll('.tab-header').forEach(header => {
+            header.classList.remove('active');
+        });
+        
+        // Show selected tab
+        document.getElementById(`tab-${tabName}`).style.display = 'block';
+        document.getElementById(`tab-header-${tabName}`).classList.add('active');
+    }
+    
+    function showReviewModal() {
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+            showAlert('Please login to write a review', 'error');
+            setTimeout(() => window.location.href = '/web/login', 1500);
+            return;
+        }
+        
+        document.getElementById('review-modal').style.display = 'block';
+    }
+    
+    function closeReviewModal() {
+        document.getElementById('review-modal').style.display = 'none';
+        document.getElementById('review-form').reset();
+    }
+    
+    async function submitReview(e) {
+        e.preventDefault();
+        
+        const token = localStorage.getItem('token');
+        const rating = document.querySelector('input[name="rating"]:checked').value;
+        const comment = document.getElementById('review-comment').value;
+        
+        try {
+            const response = await fetch('/api/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    product_id: productId,
+                    rating: parseInt(rating),
+                    comment: comment
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Review submitted successfully!', 'success');
+                closeReviewModal();
+                loadProductReviews();
+                checkUserReviewStatus(); // Update button state after successful review
+            } else {
+                showAlert(result.error || 'Failed to submit review', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+</script>
+
+{% endblock %}

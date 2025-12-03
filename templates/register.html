@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Register - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="auth-container">
+        <div class="auth-card" id="register-card">
+            <h2 id="register-title">Create Your Account</h2>
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="name" class="form-control" placeholder="Enter your name"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" name="email" class="form-control"
+                        placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" class="form-control"
+                        placeholder="Enter your password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="register-phone">Phone Number</label>
+                    <input type="tel" id="register-phone" name="phone" class="form-control"
+                        placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="register-address">Address</label>
+                    <textarea id="register-address" name="address" class="form-control" placeholder="Enter your address"
+                        rows="3"></textarea>
+                </div>
+                <button type="submit" id="btn-register-submit" class="btn btn-primary btn-block">
+                    Register
+                </button>
+            </form>
+            <p class="auth-footer">
+                Already have an account?
+                <a href="/web/login" id="link-login">Login here</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if already logged in
+    if (localStorage.getItem('token')) {
+        window.location.href = '/';
+    }
+
+    document.getElementById('register-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('register-name').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        const phone = document.getElementById('register-phone').value;
+        const address = document.getElementById('register-address').value;
+
+        // Name Validation
+        // at least 3 character and no number and special charcter
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (name.length < 3) {
+            showAlert('Name must be at least 3 characters long', 'error');
+            return;
+        }
+        if (!nameRegex.test(name)) {
+            showAlert('Name must contain only letters and spaces', 'error');
+            return;
+        }
+
+        // Phone Validation
+        // number only and + and at least 8 numbers and not more than 20 numbers
+        // can't be empty AND phone can't be character
+        const phoneRegex = /^[0-9+]+$/;
+        if (!phone || !phone.trim()) {
+            showAlert('Phone number is required', 'error');
+            return;
+        }
+        if (!phoneRegex.test(phone)) {
+            showAlert('Phone number must contain only numbers and +', 'error');
+            return;
+        }
+        if (phone.length < 8 || phone.length > 20) {
+            showAlert('Phone number must be between 8 and 20 characters', 'error');
+            return;
+        }
+
+        // Address Validation
+        // they can't be empty
+        if (!address || !address.trim()) {
+            showAlert('Address is required', 'error');
+            return;
+        }
+
+        const formData = {
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+            address: address
+        };
+
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showAlert('Registration successful! Please login.', 'success');
+                setTimeout(() => {
+                    window.location.href = '/web/login';
+                }, 2000);
+            } else {
+                showAlert(result.error || 'Registration failed', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error. Please try again.', 'error');
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 id="admin-title">Admin Dashboard</h1>
+    
+    <!-- Statistics -->
+    <div class="stats-grid" id="stats-grid">
+        <div class="stat-card" id="stat-users">
+            <h3>Total Users</h3>
+            <p class="stat-value" id="stat-users-value">0</p>
+        </div>
+        <div class="stat-card" id="stat-products">
+            <h3>Total Products</h3>
+            <p class="stat-value" id="stat-products-value">0</p>
+        </div>
+        <div class="stat-card" id="stat-orders">
+            <h3>Total Orders</h3>
+            <p class="stat-value" id="stat-orders-value">0</p>
+        </div>
+        <div class="stat-card" id="stat-revenue">
+            <h3>Total Revenue</h3>
+            <p class="stat-value" id="stat-revenue-value">$0.00</p>
+        </div>
+    </div>
+    
+    <!-- Product Management -->
+    <div class="admin-section">
+        <h2 id="products-management-title">Product Management</h2>
+        <button id="btn-add-product" class="btn btn-primary">Add New Product</button>
+        
+        <div id="admin-products-list" class="admin-table">
+            <!-- Products table will be loaded here -->
+        </div>
+    </div>
+    
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="close-product-modal">&times;</span>
+            <h2 id="product-modal-title">Add Product</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <div class="form-group">
+                    <label for="product-name-input">Product Name</label>
+                    <input type="text" id="product-name-input" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description-input">Description</label>
+                    <textarea id="product-description-input" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price-input">Price</label>
+                    <input type="number" id="product-price-input" class="form-control" 
+                           step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-category-input">Category</label>
+                    <select id="product-category-input" class="form-control" required>
+                        <option value="">Select Category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-stock-input">Stock</label>
+                    <input type="number" id="product-stock-input" class="form-control" 
+                           min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-image-input">Image URL</label>
+                    <input type="url" id="product-image-input" class="form-control">
+                </div>
+                <button type="submit" id="btn-save-product" class="btn btn-primary">Save Product</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuth();
+        checkAdmin();
+        loadStats();
+        loadCategories();
+        loadAdminProducts();
+        
+        document.getElementById('btn-add-product').addEventListener('click', showAddProductModal);
+        document.getElementById('close-product-modal').addEventListener('click', closeProductModal);
+        document.getElementById('product-form').addEventListener('submit', saveProduct);
+    });
+
+    function checkAdmin() {
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        if (!user.is_admin) {
+            showAlert('Admin access required', 'error');
+            setTimeout(() => window.location.href = '/', 2000);
+        }
+    }
+
+    async function loadStats() {
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch('/api/stats', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                document.getElementById('stat-users-value').textContent = result.data.total_users;
+                document.getElementById('stat-products-value').textContent = result.data.total_products;
+                document.getElementById('stat-orders-value').textContent = result.data.total_orders;
+                document.getElementById('stat-revenue-value').textContent = 
+                    `$${result.data.total_revenue.toFixed(2)}`;
+            }
+        } catch (error) {
+            showAlert('Error loading statistics', 'error');
+        }
+    }
+
+    async function loadCategories() {
+        try {
+            const response = await fetch('/api/categories');
+            const result = await response.json();
+            
+            if (result.success) {
+                const select = document.getElementById('product-category-input');
+                result.data.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat.name;
+                    option.textContent = cat.name;
+                    select.appendChild(option);
+                });
+            }
+        } catch (error) {
+            console.error('Error loading categories:', error);
+        }
+    }
+
+    async function loadAdminProducts() {
+        try {
+            const response = await fetch('/api/products?per_page=100');
+            const result = await response.json();
+            
+            if (result.success) {
+                displayAdminProducts(result.data);
+            }
+        } catch (error) {
+            showAlert('Error loading products', 'error');
+        }
+    }
+
+    function displayAdminProducts(products) {
+        const container = document.getElementById('admin-products-list');
+        
+        container.innerHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${products.map(product => `
+                        <tr id="admin-product-row-${product.id}">
+                            <td>${product.id}</td>
+                            <td>${product.name}</td>
+                            <td>${product.category}</td>
+                            <td>$${product.price.toFixed(2)}</td>
+                            <td>${product.stock || 0}</td>
+                            <td>
+                                <button onclick="editProduct(${product.id})" 
+                                        id="btn-edit-product-${product.id}" 
+                                        class="btn btn-small btn-outline">Edit</button>
+                                <button onclick="deleteProduct(${product.id})" 
+                                        id="btn-delete-product-${product.id}" 
+                                        class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+    }
+
+    function showAddProductModal() {
+        document.getElementById('product-modal-title').textContent = 'Add Product';
+        document.getElementById('product-form').reset();
+        document.getElementById('product-id').value = '';
+        document.getElementById('product-modal').style.display = 'block';
+    }
+
+    async function editProduct(productId) {
+        try {
+            const response = await fetch(`/api/products/${productId}`);
+            const result = await response.json();
+            
+            if (result.success) {
+                const product = result.data;
+                document.getElementById('product-modal-title').textContent = 'Edit Product';
+                document.getElementById('product-id').value = product.id;
+                document.getElementById('product-name-input').value = product.name;
+                document.getElementById('product-description-input').value = product.description;
+                document.getElementById('product-price-input').value = product.price;
+                document.getElementById('product-category-input').value = product.category;
+                document.getElementById('product-stock-input').value = product.stock;
+                document.getElementById('product-image-input').value = product.image_url || '';
+                document.getElementById('product-modal').style.display = 'block';
+            }
+        } catch (error) {
+            showAlert('Error loading product', 'error');
+        }
+    }
+
+    async function saveProduct(e) {
+        e.preventDefault();
+        
+        const token = localStorage.getItem('token');
+        const productId = document.getElementById('product-id').value;
+        
+        const productData = {
+            name: document.getElementById('product-name-input').value,
+            description: document.getElementById('product-description-input').value,
+            price: parseFloat(document.getElementById('product-price-input').value),
+            category: document.getElementById('product-category-input').value,
+            stock: parseInt(document.getElementById('product-stock-input').value),
+            image_url: document.getElementById('product-image-input').value
+        };
+        
+        const url = productId ? `/api/products/${productId}` : '/api/products';
+        const method = productId ? 'PUT' : 'POST';
+        
+        try {
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(productData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Product saved successfully', 'success');
+                closeProductModal();
+                loadAdminProducts();
+                loadStats();
+            } else {
+                showAlert(result.error || 'Failed to save product', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+
+    async function deleteProduct(productId) {
+        if (!confirm('Are you sure you want to delete this product?')) return;
+        
+        const token = localStorage.getItem('token');
+        
+        try {
+            const response = await fetch(`/api/products/${productId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Product deleted', 'success');
+                loadAdminProducts();
+                loadStats();
+            } else {
+                showAlert(result.error || 'Failed to delete product', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+
+    function closeProductModal() {
+        document.getElementById('product-modal').style.display = 'none';
+    }
+</script>
+{% endblock %}

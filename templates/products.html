@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+{% block title %}Products - E-Commerce Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1 id="products-title">Our Products</h1>
+        
+        <!-- Filters -->
+        <div class="filters" id="product-filters">
+            <input type="text" id="search-input" class="form-control" 
+                   placeholder="Search products..." autocomplete="off">
+            
+            <select id="category-filter" class="form-control">
+                <option value="">All Categories</option>
+            </select>
+            
+            <input type="number" id="min-price" class="form-control" 
+                   placeholder="Min Price" min="0" step="0.01">
+            
+            <input type="number" id="max-price" class="form-control" 
+                   placeholder="Max Price" min="0" step="0.01">
+            
+            <button type="button" id="btn-apply-filters" class="btn btn-primary">Apply Filters</button>
+            <button type="button" id="btn-clear-filters" class="btn btn-outline">Clear</button>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="products-grid" class="products-grid">
+        <!-- Products will be loaded dynamically -->
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination"></div>
+</div>
+
+<script>
+    let currentPage = 1;
+    const perPage = 12;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, initializing products page...');
+        
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryParam = urlParams.get('category');
+        
+        loadCategories().then(() => {
+            // Set category filter if provided in URL
+            if (categoryParam) {
+                const categoryFilter = document.getElementById('category-filter');
+                if (categoryFilter) {
+                    categoryFilter.value = categoryParam;
+                }
+            }
+            loadProducts();
+        });
+        
+        // Filter event listeners
+        const applyBtn = document.getElementById('btn-apply-filters');
+        const clearBtn = document.getElementById('btn-clear-filters');
+        const searchInput = document.getElementById('search-input');
+        const categoryFilter = document.getElementById('category-filter');
+        const minPrice = document.getElementById('min-price');
+        const maxPrice = document.getElementById('max-price');
+        
+        console.log('Filter elements found:', {
+            applyBtn: !!applyBtn,
+            clearBtn: !!clearBtn,
+            searchInput: !!searchInput,
+            categoryFilter: !!categoryFilter,
+            minPrice: !!minPrice,
+            maxPrice: !!maxPrice
+        });
+        
+        if (applyBtn) applyBtn.addEventListener('click', applyFilters);
+        if (clearBtn) clearBtn.addEventListener('click', clearFilters);
+        
+        // Real-time filtering
+        if (searchInput) searchInput.addEventListener('input', debounce(applyFilters, 500));
+        if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
+        if (minPrice) minPrice.addEventListener('input', debounce(applyFilters, 500));
+        if (maxPrice) maxPrice.addEventListener('input', debounce(applyFilters, 500));
+        
+        // Enter key for search
+        if (searchInput) {
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') applyFilters();
+            });
+        }
+        
+        console.log('Event listeners attached successfully');
+    });
+
+    // Debounce function for real-time filtering
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    async function loadCategories() {
+        try {
+            const response = await fetch('/api/categories');
+            const result = await response.json();
+            
+            if (result.success) {
+                const select = document.getElementById('category-filter');
+                result.data.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat.name;
+                    option.textContent = cat.name;
+                    option.id = `category-option-${cat.id}`;
+                    select.appendChild(option);
+                });
+            }
+            return result.success;
+        } catch (error) {
+            console.error('Error loading categories:', error);
+            return false;
+        }
+    }
+
+    async function loadProducts() {
+        const search = document.getElementById('search-input').value;
+        const category = document.getElementById('category-filter').value;
+        const minPrice = document.getElementById('min-price').value;
+        const maxPrice = document.getElementById('max-price').value;
+        
+        // Show loading state
+        const grid = document.getElementById('products-grid');
+        grid.innerHTML = '<div class="loading">Loading products...</div>';
+        
+        let url = `/api/products?page=${currentPage}&per_page=${perPage}`;
+        if (search) url += `&search=${encodeURIComponent(search)}`;
+        if (category) url += `&category=${encodeURIComponent(category)}`;
+        if (minPrice) url += `&min_price=${minPrice}`;
+        if (maxPrice) url += `&max_price=${maxPrice}`;
+        
+        console.log('Loading products from:', url); // Debug log
+        
+        try {
+            const response = await fetch(url);
+            const result = await response.json();
+            
+            console.log('API Response:', result); // Debug log
+            
+            if (result.success) {
+                displayProducts(result.data);
+                displayPagination(result.pagination);
+            } else {
+                grid.innerHTML = '<div class="error">Failed to load products</div>';
+            }
+        } catch (error) {
+            console.error('Error loading products:', error);
+            grid.innerHTML = '<div class="error">Network error loading products</div>';
+        }
+    }
+
+    function displayProducts(products) {
+        const grid = document.getElementById('products-grid');
+        
+        if (products.length === 0) {
+            grid.innerHTML = '<p class="no-results" id="no-products">No products found.</p>';
+            return;
+        }
+        
+        grid.innerHTML = products.map(product => `
+            <div class="product-card" id="product-${product.id}">
+                <div class="product-image">
+                    <img src="${product.image_url || '/static/img/placeholder.png'}" 
+                         alt="${product.name}" id="product-img-${product.id}">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name" id="product-name-${product.id}">${product.name}</h3>
+                    <p class="product-category" id="product-category-${product.id}">${product.category}</p>
+                    <p class="product-price" id="product-price-${product.id}">$${product.price.toFixed(2)}</p>
+                    <p class="product-stock" id="product-stock-${product.id}">
+                        Stock: ${product.stock || 0}
+                    </p>
+                    <div class="product-actions">
+                        <a href="/web/products/${product.id}" class="btn btn-outline btn-small" 
+                           id="btn-view-${product.id}">View Details</a>
+                        <button onclick="addToCart(${product.id})" class="btn btn-primary btn-small" 
+                                id="btn-add-cart-${product.id}">Add to Cart</button>
+                        <button onclick="toggleLike(${product.id})" class="btn btn-outline btn-small like-btn" 
+                                id="btn-like-${product.id}" style="cursor: pointer; pointer-events: auto;">🤍 Like <span id="like-count-${product.id}">0</span></button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+        // Load likes after products are displayed
+        setTimeout(loadAllProductLikes, 100);
+    }
+    
+    // Load likes for all products
+    async function loadAllProductLikes() {
+        const likeButtons = document.querySelectorAll('[id^="btn-like-"]');
+        const likeCounts = document.querySelectorAll('[id^="like-count-"]');
+        
+        // Check localStorage first for faster loading
+        const likedProducts = JSON.parse(localStorage.getItem('liked_products') || '[]');
+        console.log('Liked products in localStorage:', likedProducts);
+        
+        // Load likes count for each product
+        for (const likeCount of likeCounts) {
+            const productId = likeCount.id.replace('like-count-', '');
+            try {
+                const response = await fetch(`/api/products/${productId}/likes`);
+                const result = await response.json();
+                if (result.success) {
+                    likeCount.textContent = result.count;
+                }
+            } catch (error) {
+                console.error('Error loading likes for product', productId, error);
+            }
+        }
+        
+        // Check localStorage for liked products first
+        for (const likeButton of likeButtons) {
+            const productId = likeButton.id.replace('btn-like-', '');
+            if (likedProducts.includes(parseInt(productId))) {
+                console.log('Product already liked in localStorage:', productId);
+                updateLikeButton(productId, true);
+            }
+        }
+        
+        // Check if current user has liked each product on server
+        const token = localStorage.getItem('token');
+        if (token) {
+            for (const likeButton of likeButtons) {
+                const productId = likeButton.id.replace('btn-like-', '');
+                
+                // Skip if already marked as liked
+                if (likedProducts.includes(parseInt(productId))) {
+                    continue;
+                }
+                
+                try {
+                    const response = await fetch(`/api/products/${productId}/likes/check`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    const result = await response.json();
+                    if (result.success && result.liked) {
+                        updateLikeButton(productId, true);
+                        // Add to localStorage
+                        const likedProducts = JSON.parse(localStorage.getItem('liked_products') || '[]');
+                        if (!likedProducts.includes(parseInt(productId))) {
+                            likedProducts.push(parseInt(productId));
+                            localStorage.setItem('liked_products', JSON.stringify(likedProducts));
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error checking like status for product', productId, error);
+                }
+            }
+        }
+    }
+
+    function displayPagination(pagination) {
+        const container = document.getElementById('pagination');
+        let html = '';
+        
+        if (pagination.pages > 1) {
+            for (let i = 1; i <= pagination.pages; i++) {
+                html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" 
+                                id="page-btn-${i}" 
+                                onclick="changePage(${i})">${i}</button>`;
+            }
+        }
+        
+        container.innerHTML = html;
+    }
+
+    function changePage(page) {
+        currentPage = page;
+        loadProducts();
+        window.scrollTo(0, 0);
+    }
+
+    function applyFilters() {
+        console.log('Applying filters...'); // Debug log
+        
+        // Add visual feedback
+        const applyBtn = document.getElementById('btn-apply-filters');
+        if (applyBtn) {
+            applyBtn.textContent = 'Filtering...';
+            applyBtn.disabled = true;
+        }
+        
+        currentPage = 1;
+        loadProducts();
+        
+        // Reset button after a short delay
+        setTimeout(() => {
+            if (applyBtn) {
+                applyBtn.textContent = 'Apply Filters';
+                applyBtn.disabled = false;
+            }
+        }, 1000);
+    }
+
+    function clearFilters() {
+        document.getElementById('search-input').value = '';
+        document.getElementById('category-filter').value = '';
+        document.getElementById('min-price').value = '';
+        document.getElementById('max-price').value = '';
+        currentPage = 1;
+        loadProducts();
+    }
+
+    async function addToCart(productId) {
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+            showAlert('Please login to add items to cart', 'error');
+            setTimeout(() => window.location.href = '/web/login', 1500);
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/cart/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ product_id: productId, quantity: 1 })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('Added to cart!', 'success');
+                updateCartCount();
+            } else {
+                showAlert(result.error || 'Failed to add to cart', 'error');
+            }
+        } catch (error) {
+            showAlert('Network error', 'error');
+        }
+    }
+</script>
+{% endblock %}

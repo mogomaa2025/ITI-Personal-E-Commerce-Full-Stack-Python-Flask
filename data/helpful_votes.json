@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "help_id": 3,
+        "user_identifier": "user_64",
+        "created_at": "2025-10-19T22:31:39.564026"
+    },
+    {
+        "id": 2,
+        "help_id": 1,
+        "user_identifier": "user_64",
+        "created_at": "2025-10-19T22:31:45.724916"
+    },
+    {
+        "id": 3,
+        "help_id": 19,
+        "user_identifier": "127.0.0.1",
+        "created_at": "2025-10-19T23:01:02.120186"
+    },
+    {
+        "id": 4,
+        "help_id": 18,
+        "user_identifier": "user_65",
+        "created_at": "2025-10-19T23:13:07.271492"
+    },
+    {
+        "id": 5,
+        "help_id": 18,
+        "user_identifier": "127.0.0.1",
+        "created_at": "2025-10-19T23:13:12.159445"
+    },
+    {
+        "id": 6,
+        "help_id": 32,
+        "user_identifier": "user_65",
+        "created_at": "2025-10-19T23:15:49.456051"
+    },
+    {
+        "id": 7,
+        "help_id": 3,
+        "user_identifier": "127.0.0.1",
+        "created_at": "2025-11-13T13:16:29.059865"
+    },
+    {
+        "id": 8,
+        "help_id": 37,
+        "user_identifier": "user_120",
+        "created_at": "2025-11-13T19:41:37.970385"
+    },
+    {
+        "id": 9,
+        "help_id": 38,
+        "user_identifier": "user_120",
+        "created_at": "2025-11-13T19:42:25.891010"
+    },
+    {
+        "id": 10,
+        "help_id": 39,
+        "user_identifier": "user_120",
+        "created_at": "2025-11-13T19:45:53.647193"
+    },
+    {
+        "id": 11,
+        "help_id": 41,
+        "user_identifier": "user_122",
+        "created_at": "2025-11-13T21:59:19.210140"
+    },
+    {
+        "id": 12,
+        "help_id": 46,
+        "user_identifier": "user_158",
+        "created_at": "2025-11-17T01:55:55.679712"
+    },
+    {
+        "id": 13,
+        "help_id": 47,
+        "user_identifier": "user_159",
+        "created_at": "2025-11-17T02:01:37.526465"
+    }
+]
